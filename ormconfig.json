@@ -1,0 +1,10 @@
+{
+    "type": "sqlite",
+    "name": "default",
+    "database": "db.sqlite",
+    "synchronize": true,
+    "logging": true,
+    "entities": [
+        "db/entities/**/*.ts"
+    ]
+}
