@@ -10,4 +10,6 @@ export const addUserRoutes = async (server: Express) => {
         const users: User[] = await userRepo.find();
         res.json(users);
     });
+
+    
 };

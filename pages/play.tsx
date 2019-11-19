@@ -1,9 +1,9 @@
-import React from 'react'
-import { Layout } from '../layouts/Layout'
-import { Button } from '../components/Button/Button';
+import React from 'react';
+import { Layout } from '../layouts/Layout';
+import { Chat } from '../components/Chat/Chat';
 
 const Page = () => <Layout>
-    <Button></Button>
+    <Chat></Chat>
 </Layout>
 
 export default Page;
