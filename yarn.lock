@@ -6031,13 +6031,6 @@ react-dom@^16.11.0:
     prop-types "^15.6.2"
     scheduler "^0.17.0"
 
-react-email-editor@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-email-editor/-/react-email-editor-1.0.0.tgz#f7b2a4e6918f7551d838b12aa95463c5c876916d"
-  integrity sha512-Q/AwzJqh4pxbXytjpiNe4yVSxb8QwJ+ksbvp/f+eKoYTQ1Qz09cElKTxiBSIC78DK2RfFblDft1sUXDq6utgtw==
-  dependencies:
-    react-load-script "^0.0.6"
-
 react-error-overlay@5.1.6:
   version "5.1.6"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
@@ -6057,11 +6050,6 @@ react-is@^16.7.0, react-is@^16.8.6:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
-
-react-load-script@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/react-load-script/-/react-load-script-0.0.6.tgz#db6851236aaa25bb622677a2eb51dad4f8d2c258"
-  integrity sha512-aRGxDGP9VoLxcsaYvKWIW+LRrMOzz2eEcubTS4NvQPPugjk2VvMhow0wWTkSl7RxookomD1MwcP4l5UStg5ShQ==
 
 react-transition-group@^4.3.0:
   version "4.3.0"

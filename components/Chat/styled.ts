@@ -31,7 +31,10 @@ export const WhiteTextField = withStyles({
 })(TextField);
 
 export const ChatContainer = styled.div`
-  width: 100%;
+  position: fixed;
+  bottom: 0;
+  width: 300px;
+  right: 0;
   height: 500px;
   display: flex;
   flex-direction: column;

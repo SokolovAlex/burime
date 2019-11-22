@@ -3,64 +3,72 @@ import { socket } from "../../services/socket";
 import { ChatContainer, NameBackground, NameInputWrapper, WhiteTextField, MessagesContainer, NewMessageContainer } from "./styled";
 import { Button } from "@material-ui/core";
 import storage from '../../services/storage';
+import { isClient } from "../../config";
 
 export const Chat = () => {
-  const [ name, setName] = useState(storage.getItem('name'));
-  const [ inputName, setInputName] = useState();
+    const [name, setName] = useState(storage.getItem('name'));
+    const [open, setOpen] = useState(true);
+    const [inputName, setInputName] = useState();
 
-  const send = () => {
-    socket.emit('sendMessage', '!!!');
-  }
-
-  const handleKeyPress = (e: any) => {
-    if (e.key === 'Enter'){
-      setName(inputName);
-      storage.setItem('name', inputName);
+    const send = () => {
+      socket.emit('sendMessage', '!!!');
     }
-  }
 
-  const clearName = () => {
-    setName(null)
-    storage.removeItem('name');
-  }
+    const handleKeyPress = (e: any) => {
+      if (e.key === 'Enter'){
+        setName(inputName);
+        storage.setItem('name', inputName);
+      }
+    }
 
-  useEffect( () => {
-      socket.on('getMessage', (message) => {
-          console.log(message);
-      })
-  }, []);
+    const clearName = () => {
+      setName(null)
+      storage.removeItem('name');
+    }
+
+    useEffect( () => {
+        socket.on('getMessage', (message) => {
+            console.log(message);
+        })
+    }, []);
+
     return (
       <div>
-        <div style={{ textAlign: "center" }}>
-          Чат
-        </div>
+        { isClient && <ChatContainer>
+          <div style={{ textAlign: "center" }} onClick={() => setOpen(!open)}>
+            Чат
+          </div>
 
-        <ChatContainer>
-        { name ?
-            (<>
-                <MessagesContainer></MessagesContainer>
-                <NewMessageContainer>
-                  <Button variant="contained" color="primary">Отправить</Button>
-                  <Button variant="contained" onClick={() => clearName()}>Новое имя</Button>
-                </NewMessageContainer>
-              </>)
-            :
-            (
-              <NameBackground>
-                <NameInputWrapper>
-                  <WhiteTextField
-                    label="Имя для чата"
-                    variant="outlined"
-                    type="text"
-                    margin="normal"
-                    onKeyPress={(e) => handleKeyPress(e)}
-                    onChange={(e) => setInputName(e.target.value)}
-                  />
-                </NameInputWrapper>
-              </NameBackground>
-            )
-        }
+          { open &&
+            <>
+              { name ?
+                  (<>
+                      <MessagesContainer></MessagesContainer>
+                      <NewMessageContainer>
+                        <Button variant="contained" color="primary">Отправить</Button>
+                        <Button variant="contained" onClick={() => clearName()}>Новое имя</Button>
+                      </NewMessageContainer>
+                    </>)
+                  :
+                  (
+                    <NameBackground>
+                      <NameInputWrapper>
+                        <WhiteTextField
+                          label="Имя для чата"
+                          variant="outlined"
+                          type="text"
+                          margin="normal"
+                          onKeyPress={(e) => handleKeyPress(e)}
+                          onChange={(e) => setInputName(e.target.value)}
+                        />
+                      </NameInputWrapper>
+                    </NameBackground>
+                  )
+              }
+            </>
+          }
         </ChatContainer>
+      }
       </div>
     )
 }
