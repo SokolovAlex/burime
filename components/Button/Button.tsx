@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { Button as MuiButton } from "@material-ui/core";
+import { ButtonWrapper } from './styled';
 
-export const Button = () => {
-    return (
-        <div>11</div>
-    );
+interface IButtonProps {
+    children: ReactNode;
+    onClick: () => void;
 }
+
+export const Button = ({ children, onClick }: IButtonProps) => 
+    <MuiButton variant='contained' onClick={onClick} color="primary">{children}</MuiButton>
+
+interface ISubmitButton {
+    children: ReactNode;
+}
+
+export const SubmitButton = ({ children }: ISubmitButton) => 
+    <ButtonWrapper type='submit'>{children}</ButtonWrapper>

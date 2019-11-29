@@ -12,8 +12,8 @@ const menuItems = [{
         text: 'лучшие',
         href: '/top'
     }, {
-        text: 'мои заметки',
-        href: '/drafts'
+        text: 'мои',
+        href: '/my'
     },
 ];
 
