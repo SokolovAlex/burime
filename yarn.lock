@@ -7054,7 +7054,7 @@ traverse@0.6.6:
   resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.6.6.tgz#cbdf560fd7b9af632502fed40f918c157ea97137"
   integrity sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc=
 
-ts-node@^8.5.0:
+ts-node@8.5.0:
   version "8.5.0"
   resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-8.5.0.tgz#bc7d5a39133d222bf25b1693651e4d893785f884"
   integrity sha512-fbG32iZEupNV2E2Fd2m2yt1TdAwR3GTCrJQBHDevIiEBNy1A8kqnyl1fv7jmRmmbtcapFab2glZXHJvfD1ed0Q==
