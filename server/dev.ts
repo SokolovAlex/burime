@@ -5,12 +5,11 @@ import { addAuthRoutes } from './routes/auth';
 import { addUserRoutes } from './routes/user';
 
 (async () => {
-    console.log("1");
     const dev = process.env.NODE_ENV !== 'production';
     const app = next({ dev });
-    console.log("2");
     const handle = app.getRequestHandler();
     const server = express();
+
     await initDb();
     await app.prepare();
 

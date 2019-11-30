@@ -9,6 +9,7 @@ module.exports = function(api) {
     ];
 
     const plugins = [
+        'transform-class-properties',
         'babel-plugin-styled-components',
     ];
 
