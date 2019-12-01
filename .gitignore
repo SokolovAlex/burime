@@ -1,3 +1,4 @@
-node_modules
+**/node_modules/
+**/.next/
 
-//./next
+config.local.ts

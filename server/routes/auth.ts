@@ -1,10 +1,12 @@
-import { User } from './../../db/entities/user';
-import { getConnection } from './../../db/index';
+import { User } from './../db/entities/user';
+import { getConnection } from './../db';
 import  { Express } from 'express';
 import passport from 'passport';
 import session from 'express-session';
 import initPassport from '../passport';
-import { genSalt, hash } from 'bcrypt';
+
+// import { genSalt, hash } from 'bcrypt';
+import { genSalt, hash } from './../services/crypt';
 
 export const addAuthRoutes = async (server: Express) => {
     await initPassport(server);
@@ -37,7 +39,7 @@ export const addAuthRoutes = async (server: Express) => {
         console.log('Registration!');
         console.log(req.body);
         const { name, login, password } = req.body;
-        const saltedPassword = await hash(password);
+        const saltedPassword = await hash(password, salt);
         const user = await userRepo.save({
             name,
             email: login,

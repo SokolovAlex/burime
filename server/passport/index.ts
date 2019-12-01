@@ -1,12 +1,10 @@
 import passport from 'passport';
 import  { Express } from 'express';
 import { OAuthStrategy as GoogleStrategy } from 'passport-google-oauth';
-import { getConnection } from './../../db/index';
-import { User } from './../../db/entities/user';
+import { getConnection } from './../db/index';
+import { User } from './../db/entities/user';
 import { Strategy as LocalStrategy } from 'passport-local';
-
-const key = '796784362981-5cu937g3chdeaaj18ngj5ks5e1o881ad.apps.googleusercontent.com';
-const secret = 'q5PyM1mabQNKVI8GPRTYEnIa';
+import { key, secret } from './../config.local';
 
 export default async (server: Express) => {
     const connection = getConnection();
