@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { LoginContainer } from './styled';
 import { FormDialog } from '../Dialog/Dialog';
-import { registration } from '../../services/api';
+import { registration, login } from '../../services/api';
 import { SignIn } from './SignIn';
 import { SignUp } from './SignUp';
 
@@ -12,8 +12,9 @@ interface AuthModalProps {
 
 export const AuthModal = ({ isOpen, setOpen }: AuthModalProps) => {
     const [signIn, setSignIn] = useState(true);
-    const onLogin = useCallback(data => {
-        console.log('onLogin', data);
+    const onLogin = useCallback(async data => {
+        const responce = await login();
+        console.log('responce', responce);
     }, []);
 
     const onRegistration = useCallback((data) => {

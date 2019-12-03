@@ -1,6 +1,6 @@
 import  { Express } from 'express';
-import { getConnection } from '../../db';
-import { User } from '../../db/entities/user';
+import { getConnection } from '../db';
+import { User } from '../db/entities/user';
 
 export const addUserRoutes = async (server: Express) => {
     const connection = getConnection();
@@ -10,6 +10,4 @@ export const addUserRoutes = async (server: Express) => {
         const users: User[] = await userRepo.find();
         res.json(users);
     });
-
-    
 };

@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { Button as MuiButton } from "@material-ui/core";
 import { ButtonWrapper } from './styled';
 
 interface IButtonProps {
@@ -8,7 +7,7 @@ interface IButtonProps {
 }
 
 export const Button = ({ children, onClick }: IButtonProps) => 
-    <MuiButton variant='contained' onClick={onClick} color="primary">{children}</MuiButton>
+    <button onClick={onClick}>{children}</button>
 
 interface ISubmitButton {
     children: ReactNode;

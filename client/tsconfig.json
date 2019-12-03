@@ -1,39 +1,15 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "lib": [
-      "es2015",
-      "dom"
-    ],
-    "strictPropertyInitialization": false,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "rootDir": "./",
-    "outDir": "dist",
-    "noImplicitAny": false,
-    "moduleResolution": "node",
-    "strict": true,
-    "allowJs": true,
-    "sourceMap": true,
-    "inlineSources": true,
-    "types": [
-      "node"
-    ],
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
-    "typeRoots": [
-      "typings"
-    ],
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true
+      "target": "esnext",
+      "module": "esnext",
+      "lib": [
+          "dom"
+      ],
+      "jsx": "preserve",
   },
   "exclude": [
-    "node_modules"
+      "node_modules"
   ],
   "include": [
     "next-env.d.ts",

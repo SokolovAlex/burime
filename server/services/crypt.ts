@@ -5,3 +5,6 @@ export const genSalt = async () => {
 export const hash = async (password: string, salt: string) => {
     return password + salt;
 }
+
+
+export const salt = genSalt();
