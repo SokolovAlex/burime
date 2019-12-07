@@ -6,7 +6,7 @@ import { User } from './../db/entities/user';
 import { Strategy as LocalStrategy } from 'passport-local';
 import { key, secret } from './../config.local';
 
-import { salt, hash } from './../services/crypt';
+import { salt, hash, compare } from './../services/crypt';
 
 export default async (server: Express) => {
     const connection = getConnection();
@@ -41,16 +41,15 @@ export default async (server: Express) => {
     ));
 
     passport.use('login', new LocalStrategy({
-        usernameField: 'login',
+        usernameField: 'email',
         passwordField: 'password'
     }, async (username, password, done) => {
-            console.log('username-->', username);
-            console.log('password-->', password);
             let user = await userRepo.findOne({ email: username });
             if (!user) {
                 return done(new Error('user not found'));
             }
-            if (user.password !== password) {
+            const validPassport = await compare(user.password as string, password);
+            if (!validPassport) {
                 return done(new Error('wrong passport'));
             }
             done(null, user);
@@ -58,14 +57,14 @@ export default async (server: Express) => {
 
     passport.use('signup', new LocalStrategy({
         passReqToCallback : true,
-        usernameField: 'login',
+        usernameField: 'email',
         passwordField: 'password',
     }, async (req, _, __, done) => {
-        const { name, login, password } = req.body;
+        const { name, email, password } = req.body;
         const saltedPassword = await hash(password, await salt);
         const user = await userRepo.save({
             name,
-            email: login,
+            email,
             password: saltedPassword,
             type: 'local',
             lastEnterAt: new Date(),

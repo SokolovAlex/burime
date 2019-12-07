@@ -14,7 +14,7 @@ export const SignUp = ({ onSubmit, onToggle }: SignUpProps) => {
     const { register, handleSubmit } = useForm({
         defaultValues: {
             name: 'alex',
-            login: 'ierroglif',
+            email: 'ierroglif@mail.ru',
             password: '123456',
             password_repeat: '123456',
         },
@@ -25,7 +25,7 @@ export const SignUp = ({ onSubmit, onToggle }: SignUpProps) => {
                 <TextField fullWidth label='имя' name='name' inputRef={register({ required: true })}></TextField>
             </InputWrapper>
             <InputWrapper>
-                <TextField fullWidth label='логин' name='login' inputRef={register({ required: true })}></TextField>
+                <TextField fullWidth label='email' name='email' inputRef={register({ required: true })}></TextField>
             </InputWrapper>
             <InputWrapper>
                 <TextField fullWidth label='пароль' type='password' name='password' inputRef={register({ required: true, minLength: 6 })}></TextField>

@@ -3,6 +3,8 @@ import Link from 'next/link';
 
 import { MenuList, MenuItem, MenuLink } from './styled';
 import { AuthModal } from '../AuthModal/AuthModal';
+import { useUser } from '../../services/auth';
+import { Avatar } from '../Avatar/Avatar';
 
 interface MenuProps {
     items: any[];
@@ -10,6 +12,7 @@ interface MenuProps {
 }
 
 export const Menu = ({ items }: MenuProps) => {
+    const user = useUser();
     const [activeMenu, setActiveMenu] = useState(items[0]);
     const [ isOpen, setOpen ] = useState(false);
     return (<>
@@ -22,10 +25,17 @@ export const Menu = ({ items }: MenuProps) => {
                 </MenuItem>
                 ))}
                 <MenuItem>
-                    <MenuLink onClick={() => setOpen(true)}>
-                        войти
-                    </MenuLink>
+                {
+                    user ? (
+                        <Avatar user={user}/>
+                    ) : (
+                        <MenuLink onClick={() => setOpen(true)}>
+                            войти
+                        </MenuLink>
+                    )
+                }
                 </MenuItem>
+
             </MenuList>
             <AuthModal isOpen={isOpen} setOpen={setOpen}/>
         </>

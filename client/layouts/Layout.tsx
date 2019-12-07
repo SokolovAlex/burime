@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import Head from 'next/head'
+import Head from 'next/head';
+import ButterToast from 'butter-toast';
 
 import { Header } from '../components/Header/Header';
 import { Section } from '../components/Section/Section';
@@ -32,5 +33,6 @@ export const Layout = ({ children }: Props) => (
         <Section>
             { children }
         </Section>
+        <ButterToast timeout={3000}/>
     </React.Fragment>
 );

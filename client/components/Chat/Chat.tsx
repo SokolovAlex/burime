@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { socket } from "../../services/socket";
+import { getSocket } from "../../services/socket";
 import { ChatContainer, NameBackground, NameInputWrapper, WhiteTextField, MessagesContainer, NewMessageContainer } from "./styled";
 import { Button } from "@material-ui/core";
 import storage from '../../services/storage';
@@ -10,6 +10,14 @@ export const Chat = () => {
     const [open, setOpen] = useState(true);
     const [inputName, setInputName] = useState();
 
+    let socket;
+    const startChat = () => {
+      socket = getSocket();
+      socket.on('getMessage', (message) => {
+          console.log(message);
+      })
+    }
+
     const send = () => {
       socket.emit('sendMessage', '!!!');
     }
@@ -17,6 +25,7 @@ export const Chat = () => {
     const handleKeyPress = (e: any) => {
       if (e.key === 'Enter'){
         setName(inputName);
+        startChat();
         storage.setItem('name', inputName);
       }
     }
@@ -25,12 +34,6 @@ export const Chat = () => {
       setName(null)
       storage.removeItem('name');
     }
-
-    useEffect( () => {
-        socket.on('getMessage', (message) => {
-            console.log(message);
-        })
-    }, []);
 
     return (
       <div>

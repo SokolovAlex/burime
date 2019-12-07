@@ -1,13 +1,20 @@
-import NextApp from 'next/app'
-import React from 'react'
-import { ThemeProvider } from 'styled-components'
-
-const theme = {
-  primary: 'green',
-}
+import React from 'react';
+import NextApp from 'next/app';
+import nCookies from 'next-cookies';
+import { status } from '../services/api';
+import { UserContext } from '../services/auth';
 
 export default class App extends NextApp {
-  // remove it here
+  static async getInitialProps({ Component, ctx }) {
+    let pageProps: any = {};
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
+    const cookies = nCookies(ctx);
+    const { user, logged } = await status(cookies);
+    return { pageProps: { ...pageProps, user, logged } };
+  }
+
   componentDidMount() {
     const jssStyles = document.querySelector('#jss-server-side')
     if (jssStyles && jssStyles.parentNode)
@@ -15,12 +22,12 @@ export default class App extends NextApp {
   }
 
   render() {
-    const { Component, pageProps } = this.props
-
+    const { Component, pageProps } = this.props;
+    const { user, logged } = pageProps;
     return (
-      <ThemeProvider theme={theme}>
+      <UserContext.Provider value={{user, logged }}>
         <Component {...pageProps} />
-      </ThemeProvider>
+      </UserContext.Provider>
     )
   }
 }

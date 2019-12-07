@@ -20,7 +20,7 @@ export const MenuItem = styled.div`
     font-family: 'Pacifico', cursive;
 `;
 
-export const MenuLink = styled.span<{active: boolean}>`
+export const MenuLink = styled.span<{active?: boolean}>`
     position: relative;
 	margin: 0 1em;
 	padding-right: 0;

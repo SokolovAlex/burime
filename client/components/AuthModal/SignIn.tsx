@@ -7,12 +7,23 @@ import { FaGoogle } from 'react-icons/fa';
 import useForm from 'react-hook-form'
 
 interface SignInProps {
+    email?: string;
+    password?: string;
     onSubmit: (data: any) => void;
     onToggle: () => void;
 }
 
-export const SignIn = ({ onSubmit, onToggle }: SignInProps) => {
-    const { register, handleSubmit } = useForm();
+export const SignIn = ({ onSubmit, onToggle, email, password }: SignInProps) => {
+    const { register, handleSubmit } = useForm({
+        // defaultValues: {
+        //     email,
+        //     password,
+        // },
+        defaultValues: {
+            email: 'ierroglif@mail.ru',
+            password: '123456',
+        },
+    });
     return (
         <form onSubmit={handleSubmit(onSubmit)} key='signIn'>
             <Centered>
@@ -22,7 +33,7 @@ export const SignIn = ({ onSubmit, onToggle }: SignInProps) => {
             </Centered>
             <Centered><LightText>или</LightText></Centered>
             <InputWrapper>
-                <TextField fullWidth label='логин' name='login' inputRef={register({ required: true })}></TextField>
+                <TextField fullWidth label='email' name='email' inputRef={register({ required: true })}></TextField>
             </InputWrapper>
             <InputWrapper>
                 <TextField fullWidth label='пароль' name='password' type='password' autoComplete='current-password' inputRef={register({ required: true })}></TextField>

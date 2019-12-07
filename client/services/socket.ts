@@ -1,5 +1,12 @@
 import openSocket from 'socket.io-client';
 
-const socket = openSocket('http://localhost:3000');
+let socket = null;
 
-export { socket };
+const getSocket = () => {
+    if (socket) {
+        socket = openSocket('http://localhost:3001');
+    }
+    return socket;
+}
+
+export { getSocket };
