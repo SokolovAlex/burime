@@ -1,3 +1,5 @@
+import { addBurimeRoutes } from './routes/burime';
+import { addMessagesRoutes } from './routes/messages';
 import { addAuthRoutes } from './routes/auth';
 import { addUserRoutes } from './routes/user';
 import express from 'express';
@@ -10,7 +12,7 @@ import Socket from 'socket.io';
 import flash from 'connect-flash';
 import { createServer } from 'http';
 import { initDb } from './db';
-import { addChat } from './sockets/chat';
+import { initSocket } from './sockets';
 import initPassport from './passport';
 
 (async () => {
@@ -23,12 +25,14 @@ import initPassport from './passport';
     server.use(flash());
     server.use(cors({
         credentials: true,
-        origin: "http://localhost:3000",
+        origin: "http://localhost:3002",
     }));
     server.use(cookieParser());
     server.use(bodyParser.json());
     server.use(expressSession({
         secret: 'burime',
+        resave: false,
+        saveUninitialized: false,
         cookie: {
             maxAge: 1000 * 60 * 60 * 24, // day
         },
@@ -39,10 +43,10 @@ import initPassport from './passport';
     await initPassport(server);
     await addUserRoutes(server);
     await addAuthRoutes(server);
-    await addChat(io);
+    await addMessagesRoutes(server);
+    await addBurimeRoutes(server);
+    await initSocket(io);
 
-    const port = dev ? 3001 : 80;
-    http.listen(port, () => {
-        console.log(`> Ready on http://localhost:${port}`)
-    });
+    const port = dev ? 3003 : 80;
+    http.listen(port, () => console.log(`> Ready on http://localhost:${port}`));
 })()

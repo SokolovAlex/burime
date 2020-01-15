@@ -1,43 +1,39 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react'
+import Link from 'next/link'
 
-import { MenuList, MenuItem, MenuLink } from './styled';
-import { AuthModal } from '../AuthModal/AuthModal';
-import { useUser } from '../../services/auth';
-import { Avatar } from '../Avatar/Avatar';
+import { MenuList, MenuItem, MenuLink } from './styled'
+import { AuthModal } from '../AuthModal/AuthModal'
+import { useUser } from '../../services/contexts/auth'
+import { Avatar } from '../Header/Avatar/Avatar'
 
 interface MenuProps {
-    items: any[];
-    className?: string;
+    items: any[]
+    className?: string
 }
 
 export const Menu = ({ items }: MenuProps) => {
-    const user = useUser();
-    const [activeMenu, setActiveMenu] = useState(items[0]);
-    const [ isOpen, setOpen ] = useState(false);
-    return (<>
+    const user = useUser()
+    const [activeMenu, setActiveMenu] = useState(items[0])
+    const [isOpen, setOpen] = useState(false)
+    return (
+        <>
             <MenuList>
-                { items.map((item, i) => (
-                <MenuItem key={i} onClick={() => setActiveMenu(item)}>
-                    <MenuLink active={item === activeMenu}>
-                        <Link href={item.href}>{item.text}</Link>
-                    </MenuLink>
-                </MenuItem>
+                {items.map((item, i) => (
+                    <MenuItem key={i} onClick={() => setActiveMenu(item)}>
+                        <MenuLink active={item === activeMenu}>
+                            <Link href={item.href}>{item.text}</Link>
+                        </MenuLink>
+                    </MenuItem>
                 ))}
                 <MenuItem>
-                {
-                    user ? (
-                        <Avatar user={user}/>
+                    {user ? (
+                        <Avatar user={user} />
                     ) : (
-                        <MenuLink onClick={() => setOpen(true)}>
-                            войти
-                        </MenuLink>
-                    )
-                }
+                        <MenuLink onClick={() => setOpen(true)}>войти</MenuLink>
+                    )}
                 </MenuItem>
-
             </MenuList>
-            <AuthModal isOpen={isOpen} setOpen={setOpen}/>
+            <AuthModal isOpen={isOpen} setOpen={setOpen} />
         </>
     )
-};
+}

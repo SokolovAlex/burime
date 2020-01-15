@@ -1,29 +1,19 @@
-import React from 'react';
+import React from 'react'
+import { Logo } from '../Logo/Logo'
+import { Menu } from '../Menu/Menu'
+import { HeaderHost, MenuWrapper, LogoWraepper, HeaderContent } from './styled'
 
-import { Logo } from '../Logo/Logo';
-import { Menu } from '../Menu/Menu';
-import { HeaderHost } from './styled';
-
-const menuItems = [{
-        text: 'играть',
-        href: '/play',
-        active: true,
-    }, {
-        text: 'лучшие',
-        href: '/top'
-    }, {
-        text: 'мои',
-        href: '/my'
-    },
-];
+const menuItems = []
 
 export const Header = () => (
     <HeaderHost>
-        <div>
-            <Logo/>
-        </div>
-        <div>
-            <Menu items={menuItems}/>
-        </div>
+        <HeaderContent>
+            <LogoWraepper>
+                <Logo />
+            </LogoWraepper>
+            <MenuWrapper>
+                <Menu items={menuItems} />
+            </MenuWrapper>
+        </HeaderContent>
     </HeaderHost>
-);
+)

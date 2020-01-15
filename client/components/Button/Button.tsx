@@ -1,17 +1,26 @@
-import React, { ReactNode } from 'react';
-import { ButtonWrapper } from './styled';
+import React, { ReactNode } from 'react'
+import { ButtonHost } from './styled'
+import { ButtonType } from '../../constants/enums';
 
 interface IButtonProps {
     children: ReactNode;
+    type?: ButtonType,
     onClick: () => void;
+    width?: number;
 }
 
-export const Button = ({ children, onClick }: IButtonProps) => 
-    <button onClick={onClick}>{children}</button>
+export const Button = ({ children, width, type = ButtonType.primary, onClick }: IButtonProps) => (
+    <ButtonHost width={width} onClick={onClick} buttonType={type}>
+        {children}
+    </ButtonHost>
+)
 
 interface ISubmitButton {
-    children: ReactNode;
+    children: ReactNode
 }
 
-export const SubmitButton = ({ children }: ISubmitButton) => 
-    <ButtonWrapper type='submit'>{children}</ButtonWrapper>
+export const SubmitButton = ({ children }: ISubmitButton) => (
+    <ButtonHost buttonType={ButtonType.primary} type="submit">{children}</ButtonHost>
+)
+
+export { ButtonType };

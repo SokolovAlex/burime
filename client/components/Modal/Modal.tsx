@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Fade from '@material-ui/core/Fade';
+import React, { ReactNode } from 'react'
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
+import Modal from '@material-ui/core/Modal'
+import Fade from '@material-ui/core/Fade'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -16,18 +16,22 @@ const useStyles = makeStyles((theme: Theme) =>
             alignItems: 'center',
             justifyContent: 'center',
         },
-    }),
-);
+    })
+)
 
 interface SimpleModalProps {
-    isOpen: boolean;
-    setOpen: (state: boolean) => void;
-    children: ReactNode;
+    isOpen: boolean
+    setOpen: (state: boolean) => void
+    children: ReactNode
 }
 
-export default function SimpleModal({isOpen, setOpen, children }: SimpleModalProps) {
-    const classes = useStyles();
-    const handleClose = () => setOpen(false);
+export default function SimpleModal({
+    isOpen,
+    setOpen,
+    children,
+}: SimpleModalProps) {
+    const classes = useStyles()
+    const handleClose = () => setOpen(false)
 
     return (
         <Modal
@@ -38,10 +42,8 @@ export default function SimpleModal({isOpen, setOpen, children }: SimpleModalPro
             className={classes.modal}
         >
             <Fade in={isOpen}>
-                <div className={classes.paper}>
-                    {children}
-                </div>
+                <div className={classes.paper}>{children}</div>
             </Fade>
         </Modal>
-    );
+    )
 }

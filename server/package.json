@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node-dev --project tsconfig.json --respawn --transpileOnly app.ts",
+    "dev": "ts-node-dev --project tsconfig.json --respawn --transpileOnly app.ts",
     "server": "ts-node --project tsconfig.json app.ts",
     "seed": "ts-node --project tsconfig.json db/seed.ts",
     "seed:poems": "ts-node --project tsconfig.json db/seed/poems.ts",
@@ -17,6 +17,7 @@
     "@types/node": "^12.12.6",
     "@types/passport-local": "^1.0.33",
     "@types/passport-strategy": "^0.2.35",
+    "@types/socket.io": "^2.1.4",
     "@types/webpack-env": "^1.14.1",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",

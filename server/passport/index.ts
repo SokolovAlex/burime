@@ -44,7 +44,10 @@ export default async (server: Express) => {
         usernameField: 'email',
         passwordField: 'password'
     }, async (username, password, done) => {
-            let user = await userRepo.findOne({ email: username });
+            let user = await userRepo.findOne({
+                where: { email: username },
+                select: ['name', 'password', 'email', 'type']
+            });
             if (!user) {
                 return done(new Error('user not found'));
             }

@@ -9,7 +9,7 @@ export const addAuthRoutes = async (server: Express) => {
     const logged = (req, res, next) => {
         if (req.isAuthenticated())
             return next();
-        res.status(401).json({
+        res.status(421).json({
             'message': 'access denied'
         });
     }
@@ -21,12 +21,12 @@ export const addAuthRoutes = async (server: Express) => {
 
     server.get('/auth/status', (req, res) => {
         if (!req.session) {
-            return res.status(411).json({
+            return res.status(421).json({
                 message: 'no session',
             });
         }
 
-        if(false) {
+        if (false) {
             console.log('-------');
             console.log(`isAuthenticated():`, req.isAuthenticated())
             console.log(`cookies:`, req.cookies)
@@ -46,15 +46,18 @@ export const addAuthRoutes = async (server: Express) => {
                 return res.status(500).json(error);
             }
             if (!user) {
-                return res.status(401).json(info.message);
+                return res.status(201).json(info.message);
             }
-            req.logIn(user, () => res.json(user));
+            req.logIn(user, () => res.json({
+                name: user.name,
+                type: user.type,
+            }));
         })(req, res);
     });
 
     server.post('/auth/logout', logged, (req, res) => {
         req.logout();
-        res.redirect('/');
+        res.json();
     });
 
     server.post('/auth/registration', (req, res) => {
@@ -63,7 +66,7 @@ export const addAuthRoutes = async (server: Express) => {
                 return res.status(500).json(error);
             }
             if (!user) {
-                return res.status(401).json(info.message);
+                return res.status(421).json(info.message);
             }
             res.json(user);
         })(req, res);

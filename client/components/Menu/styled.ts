@@ -1,33 +1,34 @@
-import styled, { css } from 'styled-components';
+import { redirect } from 'nextjs-redirect'
+import styled, { css } from 'styled-components'
 
-const menuColor = '#bfbaba';
-const activeColor = '#498ea5';
+const menuColor = '#bfbaba'
+const activeColor = '#498ea5'
 
 export const MenuList = styled.div`
     text-align: right;
     position: relative;
-    display: block;
+    display: flex;
     margin: 0 auto;
     padding: 0;
     list-style: none;
-`;
+`
 
 export const MenuItem = styled.div`
     font-size: 20px;
-    display: inline-block;
     margin: 1em 0;
     cursor: pointer;
-    font-family: 'Pacifico', cursive;
-`;
-
-export const MenuLink = styled.span<{active?: boolean}>`
+    font-family: 'Neucha', cursive;
     position: relative;
-	margin: 0 1em;
-	padding-right: 0;
-	padding-left: 0;
-	color: ${menuColor};
+`
+
+export const MenuLink = styled.span<{ active?: boolean }>`
+    position: relative;
+    margin: 0 1em;
+    padding-right: 0;
+    padding-left: 0;
+    color: ${menuColor};
     text-decoration: none;
-	transition: color 0.4s;
+    transition: color 0.4s;
 
     &:before,
     &:after {
@@ -61,17 +62,19 @@ export const MenuLink = styled.span<{active?: boolean}>`
         }
     }
 
-    ${ props => props.active && css`
-        color: ${activeColor};
-        &:hover {
+    ${props =>
+        props.active &&
+        css`
             color: ${activeColor};
-        }
-        &:before,
-        &:after {
-            transform: scale3d(1, 1, 1);
-        }
-        &:before {
-            transition-delay: 0s;
-        }
-    `}
-`;
+            &:hover {
+                color: ${activeColor};
+            }
+            &:before,
+            &:after {
+                transform: scale3d(1, 1, 1);
+            }
+            &:before {
+                transition-delay: 0s;
+            }
+        `}
+`
