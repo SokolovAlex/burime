@@ -1,5 +1,5 @@
-import React, { useState, useCallback, ChangeEvent } from 'react'
-import { useSocket } from '../../services/socket'
+import React, { useState, useCallback, ChangeEvent, useRef } from 'react';
+import { useSocket } from '../../services/socket';
 import {
     ChatContainer,
     MessagesContainer,
@@ -15,41 +15,43 @@ import {
     MessageInfo,
     MessageDate,
     ChatInput,
-} from './styled'
-import { isClient } from '../../config'
-import { useUser } from '../../services/contexts/auth'
-import { CSSTransition } from 'react-transition-group'
-import { Send } from 'styled-icons/boxicons-regular/Send'
-import { sendCommonMessage } from '../../constants/socketEvents'
-import { UsersBadge } from './UsersBadge/UsersBadge'
-import { useMessages } from '../../services/api/messages'
-import { format } from '../../services/date'
+    ContentWrapper,
+} from './styled';
+import { isClient } from '../../config';
+import { useUser } from '../../services/contexts/auth';
+import { CSSTransition } from 'react-transition-group';
+import { Send } from '@styled-icons/boxicons-regular/Send';
+import { sendCommonMessage } from '../../constants/socketEvents';
+import { UsersBadge } from './UsersBadge/UsersBadge';
+import { useMessages } from '../../services/api/messages';
+import { format } from '../../services/date';
 
 export const Chat = () => {
-    const user = useUser()
+    const user = useUser();
     if (!isClient || !user) {
-        return null
+        return null;
     }
-    const socket = useSocket()
-    const [open, setOpen] = useState(false)
-    const [newMessage, setNewMessage] = useState('')
-    const { messages, activeUsers } = useMessages(user.email, socket)
+    const socket = useSocket();
+    const [open, setOpen] = useState(false);
+    const [newMessage, setNewMessage] = useState('');
+    const { messages, activeUsers } = useMessages(user.email, socket);
+    const endEl = useRef<HTMLDivElement>(null);
 
     const openChat = useCallback(() => {
-        if (open) {
-            return
-        }
-        setOpen(true)
-    }, [open])
+        if (open) return;
+        if (!endEl || !endEl.current) return;
+        endEl.current.scrollIntoView({ behavior: 'smooth' });
+        setOpen(true);
+    }, [open]);
     const printMessage = (e: ChangeEvent<HTMLInputElement>) =>
-        setNewMessage(e.currentTarget.value)
+        setNewMessage(e.currentTarget.value);
     const sendMessage = useCallback(() => {
         if (!newMessage) {
-            return
+            return;
         }
-        socket.emit(sendCommonMessage, { author: user, content: newMessage })
-        setNewMessage('')
-    }, [socket, newMessage])
+        socket.emit(sendCommonMessage, { author: user, content: newMessage });
+        setNewMessage('');
+    }, [socket, newMessage]);
 
     return (
         <ChatContainer>
@@ -60,23 +62,26 @@ export const Chat = () => {
             </ChatHeader>
             <CSSTransition in={open} timeout={500}>
                 <ChatInner>
-                    <MessagesContainer>
-                        {messages.map(message => (
-                            <ChatMessage key={message.id}>
-                                <MessageInfo>
-                                    <MessageAuthor isMine={message.isMine}>
-                                        {message.author.name}:
-                                    </MessageAuthor>
-                                    <MessageDate>
-                                        {format(message.date)}
-                                    </MessageDate>
-                                </MessageInfo>
-                                <MessageContent>
-                                    {message.content}
-                                </MessageContent>
-                            </ChatMessage>
-                        ))}
-                    </MessagesContainer>
+                    <ContentWrapper>
+                        <MessagesContainer>
+                            {messages.map(message => (
+                                <ChatMessage key={message.id}>
+                                    <MessageInfo>
+                                        <MessageAuthor isMine={message.isMine}>
+                                            {message.author.name}:
+                                        </MessageAuthor>
+                                        <MessageDate>
+                                            {format(message.date)}
+                                        </MessageDate>
+                                    </MessageInfo>
+                                    <MessageContent>
+                                        {message.content}
+                                    </MessageContent>
+                                </ChatMessage>
+                            ))}
+                            <div ref={endEl}></div>
+                        </MessagesContainer>
+                    </ContentWrapper>
                     <ChatToolBar>
                         <ChatInputWrapper>
                             <ChatInput
@@ -92,5 +97,5 @@ export const Chat = () => {
                 </ChatInner>
             </CSSTransition>
         </ChatContainer>
-    )
-}
+    );
+};

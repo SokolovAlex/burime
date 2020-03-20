@@ -1,3 +1,5 @@
+import { changeActiveUsers } from './events';
+import { BurimeStep } from './../db/entities/burime-step';
 import { Burime } from '../db/entities/burime';
 import { addUser, removeUser } from '../services/users';
 import { getConnection } from "typeorm";
@@ -9,18 +11,14 @@ export const initSocket = async (io) => {
   const connection = getConnection();
   const messageRepo = await connection.getRepository(Message);
   const burimeRepo = await connection.getRepository(Burime);
+  const burimeStepRepo = await connection.getRepository(BurimeStep);
 
   io.on('connection', (socket) => {
-    socket.on('disconnect', () => {
-      io.emit('change_active_users', removeUser());
-    });
+    const userEmail = socket.handshake.query.user;
+    socket.on('disconnect', () => io.emit(changeActiveUsers, removeUser(userEmail)));
 
     subscribeChatEvents(socket, messageRepo, io);
-
-    subscribeBurimeEvents(socket, burimeRepo, io);
-
-    io.emit('change_active_users', addUser());
+    subscribeBurimeEvents(socket, burimeRepo, burimeStepRepo, io);
+    io.emit(changeActiveUsers, addUser(userEmail));
   });
 }
-
-

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Layout } from '../components/organizms/Layout/Layout';
 import { Chat } from '../components/Chat/Chat'
-import { BurimeCalls } from '../components/organizms/BurimeCalls/BurimeCalls'
+import { MyBurimeList } from '../components/organizms/MyBurimeList/MyBurimeList'
 
 const Page = () => (
     <Layout>
-        <BurimeCalls />
+        <MyBurimeList />
         <Chat></Chat>
     </Layout>
 )

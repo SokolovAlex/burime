@@ -1,8 +1,7 @@
 import React from 'react'
 import ButterToast, { Cinnamon } from 'butter-toast'
-import { ThumbsUp } from 'styled-icons/feather/ThumbsUp'
-import { MoodBad } from 'styled-icons/material/MoodBad'
-
+import { ThumbsUp } from '@styled-icons/feather/ThumbsUp'
+import { MoodBad } from '@styled-icons/material/MoodBad'
 import styled from 'styled-components'
 
 const ThumbsUpStyled = styled(ThumbsUp)`

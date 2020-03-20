@@ -5,7 +5,6 @@ import { UserModel } from '../models/user'
 const serverUrl = 'http://localhost:3003'
 
 export const SocketContext = createContext<SocketIOClient.Socket | null>(null)
-export const openSocket = () => Socket(serverUrl)
 
 export const useSocket = () => {
     return useContext(SocketContext) as SocketIOClient.Socket
@@ -26,7 +25,9 @@ export class SocketProvider extends Component<{
             return
         }
         this.state = {
-            socket: Socket(serverUrl, props.opts || {}),
+            socket: Socket(serverUrl, props.opts || { 
+                query: `user=${props.user.email}`,
+            }),
         }
     }
 
@@ -35,6 +36,6 @@ export class SocketProvider extends Component<{
             <SocketContext.Provider value={this.state.socket}>
                 {this.props.children}
             </SocketContext.Provider>
-        )
+        );
     }
 }

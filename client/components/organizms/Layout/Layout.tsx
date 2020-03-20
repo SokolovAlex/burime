@@ -20,14 +20,14 @@ const GlobalStyle = createGlobalStyle`
     a {
         color: black;
     }
-`
+`;
 
 interface Props {
     children: ReactNode
 }
 
 export const Layout = ({ children }: Props) => {
-    const user = useUser()
+    const user = useUser();
     return (
         <SocketProvider user={user}>
             <GlobalStyle />

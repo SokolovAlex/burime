@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { ButtonHost } from './styled'
-import { ButtonType } from '../../constants/enums';
+import { ButtonType } from '../../../constants/enums';
 
 interface IButtonProps {
     children: ReactNode;

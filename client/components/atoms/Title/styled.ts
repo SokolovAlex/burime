@@ -10,5 +10,13 @@ export const TitleWrapper = styled.h2<{ size: Size }>`
     margin-bottom: ${props =>
         (props.size === Size.lg && '24px')
         || (props.size === Size.md && '12px')
-        || '8px'}
+        || '8px'};
+`;
+
+export const RedTitleWrapper = styled.div`
+    font-size: 32px;
+    color: ${colors.danger};
+    font-family: 'Neucha', cursive;
+    text-align: center;
+    margin-bottom: 16px;
 `;

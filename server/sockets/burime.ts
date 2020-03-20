@@ -1,9 +1,24 @@
-import { BurimeStatus } from './../../client/models/burime';
+import { BurimeStatus, BurimeStep } from './../../client/models/burime';
 import { Burime } from '../db/entities/burime';
-import { createBurime, newBurime, deleteBurime, deletedBurime, acceptBurime, acceptedBurime } from './events';
-import { User } from '../db/entities/user';
+import {
+    createBurime,
+    newBurime,
+    deleteBurime,
+    deletedBurime,
+    acceptBurime,
+    acceptedBurime,
+    createStep,
+    newStep,
+    finishBurime
+} from './events';
+import dayjs from 'dayjs';
 
-export const subscribeBurimeEvents = (socket, burimeRepo, io) => {
+export const subscribeBurimeEvents = (
+    socket,
+    burimeRepo,
+    burimeStepsRepo,
+    io
+) => {
     socket.on(createBurime, async (burime: Burime) => {
         const dbBurime = await burimeRepo.save(burime);
         io.emit(newBurime, dbBurime);
@@ -15,11 +30,20 @@ export const subscribeBurimeEvents = (socket, burimeRepo, io) => {
         io.emit(deletedBurime, id);
     });
 
-    socket.on(acceptBurime, async (burime: Burime, user: User) => {
-        burime.user2 = user;
-        console.log('user', user); // todo
+    socket.on(acceptBurime, async (burime: Burime) => {
+        burime.name = `${burime.theme}. ${burime.user1.name} и ${burime.user2.name} (${dayjs().format('DD MMMM, YY')})`;
         burime.status = BurimeStatus.Process;
         const dbBurime = await burimeRepo.save(burime);
         io.emit(acceptedBurime, dbBurime);
     });
-}
+
+    socket.on(createStep, async (step: BurimeStep) => {
+        const amount = step.burime.stepsAmount;
+        const isFinished = step.order === amount;
+        const dbStep = await burimeStepsRepo.save(step);
+        io.emit(isFinished ? finishBurime : newStep, dbStep);
+        if (isFinished) {
+            await burimeRepo.update(dbStep.burime.id, { status: BurimeStatus.Finish });
+        }
+    });
+};

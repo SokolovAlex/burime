@@ -1,6 +1,6 @@
 import React from 'react'
 import { InputWrapper, ActionsWrapper, Centered, LightText } from './styled'
-import { SubmitButton } from '../Button/Button'
+import { SubmitButton } from '../atoms/Button/Button'
 import { TextField } from '@material-ui/core'
 import Link from '@material-ui/core/Link'
 import { FaGoogle } from 'react-icons/fa'

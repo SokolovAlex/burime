@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ChevronDown } from 'styled-icons/boxicons-regular/ChevronDown'
+import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown'
 
 export const ChevronIcon = styled(ChevronDown)<{ open: boolean }>`
     transition: transform 0.3s ease-in-out;

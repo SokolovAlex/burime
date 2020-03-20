@@ -10,4 +10,15 @@ export const addUserRoutes = async (server: Express) => {
         const users: User[] = await userRepo.find();
         res.json(users);
     });
+
+    server.post('/api/user/change-name', async (req, res) => {
+        const user = req.user as User;
+        const name = req.body.name;
+        await userRepo.update(user.email, {
+            name,
+        });
+        res.json({
+            message: `У вас новый псевдоним - ${name}.`,
+        });
+    });
 };

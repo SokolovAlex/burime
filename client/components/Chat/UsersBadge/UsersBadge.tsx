@@ -1,6 +1,6 @@
 import React from "react";
 import { UsersBadgeHost, UsersBadgeContent, UsersBadgeAmount } from "./styled";
-import { SupervisedUserCircle, } from 'styled-icons/material/SupervisedUserCircle'
+import { SupervisedUserCircle, } from '@styled-icons/material/SupervisedUserCircle'
 
 interface UsersBadgeProps {
     amount: number;

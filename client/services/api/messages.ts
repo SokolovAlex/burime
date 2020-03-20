@@ -1,4 +1,4 @@
-import { getCommonMessage } from './../../constants/socketEvents'
+import { getCommonMessage, changeActiveUsers } from './../../constants/socketEvents'
 import { ChatMessageModel } from '../../models/interfaces'
 import { useState, useEffect } from 'react'
 import { getApi } from './api'
@@ -27,15 +27,25 @@ export const useMessages = (email: string, socket) => {
                 setMessages(messages)
             })
             .catch(err => setError(err))
-            .finally(() => setLoading(false))
+            .finally(() => setLoading(false));
+
+        const onChangeActiveUsers = (activeUsers) => setActiveUsers(activeUsers);
+        socket.on(changeActiveUsers, onChangeActiveUsers);
+        return () => {
+            socket.off(changeActiveUsers, onChangeActiveUsers);
+        };
     }, [])
 
     useEffect(() => {
-        socket.on(getCommonMessage, message => {
-            message.isMine = message.author.email === email
-            setMessages([...messages, message])
-        })
-    }, [messages])
+        const onGetMessage = (message) => {
+            message.isMine = message.author.email === email;
+            setMessages([...messages, message]);
+        }
+        socket.on(getCommonMessage, onGetMessage);
+        return () => {
+            socket.off(getCommonMessage, onGetMessage);
+        };
+    }, [messages]);
 
     return { loading, messages, error, activeUsers }
-}
+};

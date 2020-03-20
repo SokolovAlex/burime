@@ -10,4 +10,4 @@ const Page = () => (
     </Layout>
 )
 
-export default Page
+export default Page;

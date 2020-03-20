@@ -3,16 +3,23 @@ import NextApp from 'next/app';
 import nCookies from 'next-cookies';
 import { status } from '../services/api/auth';
 import { UserContext } from '../services/contexts/auth';
+import { UserModel } from '../models/user';
 
-export default class App extends NextApp {
+export default class App extends NextApp<{}, {}, { user: UserModel }> {
+    constructor(props) {
+        super(props);
+        const { pageProps: { user } } = this.props;
+        this.state = { user };
+    }
+
     static async getInitialProps({ Component, ctx }) {
-        let pageProps: any = {}
+        let pageProps: any = {};
         if (Component.getInitialProps) {
-            pageProps = await Component.getInitialProps(ctx)
+            pageProps = await Component.getInitialProps(ctx);
         }
-        const cookies = nCookies(ctx)
-        const { user, logged } = await status(cookies)
-        return { pageProps: { ...pageProps, user, logged } }
+        const cookies = nCookies(ctx);
+        const { user, logged } = await status(cookies);
+        return { pageProps: { ...pageProps, user, logged } };
     }
 
     componentDidMount() {
@@ -21,11 +28,23 @@ export default class App extends NextApp {
             jssStyles.parentNode.removeChild(jssStyles);
     }
 
+    setUser = (user: UserModel) => {
+        this.setState({ user });
+    };
+
     render() {
         const { Component, pageProps } = this.props;
-        const { user, logged } = pageProps;
-        return <UserContext.Provider value={{ user, logged }}>
+        const { logged } = pageProps;
+        return (
+            <UserContext.Provider
+                value={{
+                    user: this.state.user,
+                    logged,
+                    setUser: (user: UserModel) => this.setUser(user),
+                }}
+            >
                 <Component {...pageProps} />
             </UserContext.Provider>
-        }
+        );
+    }
 }

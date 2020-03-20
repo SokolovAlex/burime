@@ -17,10 +17,11 @@ export enum BurimeStepsAmount {
 }
 
 export enum StepDuration {
-    Fast = 60,
-    Mid = 120,
-    Long = 180,
-    ExtraLong = 10 * 60,
+    None = 0,
+    Fast = 40,
+    Mid = 80,
+    Long = 120,
+    ExtraLong = 30 * 60,
 }
 
 export interface IOption {
@@ -37,6 +38,7 @@ export const BurimeStepsAmountOptions: IOption[] = [
 ];
 
 export const StepDurationOptions: IOption[] = [
+    { value: StepDuration.None, label: 'Без времени' },
     { value: StepDuration.Fast, label: '1 минута' },
     { value: StepDuration.Mid, label: '2 минуты ' },
     { value: StepDuration.Long, label: '3 минуты' },
@@ -55,7 +57,7 @@ export const StepDurationOptionsMap = StepDurationOptions.reduce((acc, item) => 
 
 export class BurimeStep {
     public id: number
-    public step: number
+    public order: number
     public row1: string
     public row2: string
     public createdAt: Date

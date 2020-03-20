@@ -1,15 +1,19 @@
-import { UserModel } from '../../models/user'
-import { createContext, useContext } from 'react'
+import { UserModel } from '../../models/user';
+import { createContext, useContext } from 'react';
 
 interface UserContextProps {
-    logged: boolean
-    user?: UserModel
+    logged: boolean;
+    user?: UserModel;
+    setUser: (user: UserModel) => void;
 }
 
 export const UserContext = createContext<UserContextProps>({
     logged: false,
-})
+    setUser: () => {},
+});
 
-export const useUser = () => {
-    return useContext(UserContext).user as UserModel;
-}
+export const useUser = () => useContext(UserContext).user as UserModel;
+
+export const useSetUser = () => useContext(UserContext).setUser;
+
+export const useUserContext = () => useContext(UserContext);

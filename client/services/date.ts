@@ -8,7 +8,7 @@ export const format = (dateString: string | undefined | Date) => {
         return ''
     }
     const date = new Date(dateString)
-    return `${date.getDate()}.${date.getMonth() + 1} ${date.getHours()}:${getFullMinutes(
+    return `${date.getDate()}/${date.getMonth() + 1} ${date.getHours()}:${getFullMinutes(
         date
     )}`
 }

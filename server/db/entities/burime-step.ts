@@ -8,7 +8,7 @@ export class BurimeStep {
     public id: number;
 
     @Column()
-    public step: number;
+    public order: number;
 
     @Column()
     public row1: string;

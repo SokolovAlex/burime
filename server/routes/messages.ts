@@ -1,7 +1,7 @@
 import  { Express } from 'express';
 import { getConnection } from '../db';
 import { Message } from '../db/entities/message';
-import { getUsers } from '../services/users';
+import { countUsers } from '../services/users';
 
 export const addMessagesRoutes = async (server: Express) => {
     const connection = getConnection();
@@ -14,7 +14,7 @@ export const addMessagesRoutes = async (server: Express) => {
         });
         res.json({
             messages,
-            activeUsers: getUsers(),
+            activeUsers: countUsers(),
         });
     });
 };

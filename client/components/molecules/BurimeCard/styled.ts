@@ -82,3 +82,8 @@ export const BurimeRow = styled.div`
     display: flex;
     align-items: center;
 `;
+
+export const EmptyMessage = styled.div`
+    text-align: center;
+    padding: 20px 0;
+`;

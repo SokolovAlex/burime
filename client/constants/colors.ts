@@ -3,5 +3,7 @@ export default {
     plaseholder: '#498ea5',
     lightPrimary: '#d0f3ff',
     textPrimary: '#ffffff',
-    secondary: '#ff5722',
+    secondary: '#e45151',
+
+    danger: '#e45151'
 }

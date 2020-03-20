@@ -19,6 +19,7 @@ export enum BurimeStepsAmount {
 }
 
 export enum StepDuration {
+    None = 0,
     Fast = 40,
     Mid = 80,
     Long = 120,
@@ -36,18 +37,21 @@ export class Burime {
     })
     public status: BurimeStatus;
 
+    @Column({nullable: true})
+    public name?: string;
+
     @Column()
     public theme: string;
 
     @Column({
-        type: 'varchar',
+        type: 'int8',
         default: BurimeStepsAmount.Four,
     })
     public stepsAmount: BurimeStepsAmount;
 
     @Column({
         type: 'varchar',
-        default: StepDuration.Mid,
+        default: StepDuration.None,
     })
     public stepDuration: StepDuration;
 

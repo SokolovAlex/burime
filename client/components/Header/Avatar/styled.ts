@@ -29,12 +29,14 @@ export const AvatarMenuWrapper = styled.div<{ open: boolean }>`
     animation: ${fadeIn} 0.3s linear;
     margin-top: 4px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
 `
 
-export const AvatarMenuItem = styled.div`
+export const AvatarMenuItem = styled.a`
     display: flex;
     padding: 8px 12px;
     background-color: white;
+    text-decoration: none;
     cursor: pointer;
     &:hover {
         background-color: ${colors.lightPrimary};
