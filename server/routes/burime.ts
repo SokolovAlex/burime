@@ -35,6 +35,21 @@ export const addBurimeRoutes = async (server: Express) => {
         res.json({ burimes });
     });
 
+    server.get('/api/burime/all', async (req, res) => {
+        const query = req.query;
+        const { page, size } = query;
+        const [burimes, total] = await burimeRepo.findAndCount({
+            take: size,
+            skip: (page - 1) * size,
+            order: {
+                createdAt: "DESC",
+            },
+            where: { status: BurimeStatus.Finish },
+            relations: ['user1', 'user2', 'likes', 'likes.user'],
+        });
+        res.json({ burimes, total });
+    });
+
     server.get('/api/burime/active', async (req, res) => {
         const user = req.user as User;
         const status = BurimeStatus.Process;

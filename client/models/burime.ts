@@ -1,4 +1,4 @@
-import { UserModel } from './user'
+import { UserModel } from './user';
 
 export enum BurimeStatus {
     Call = 'Call',
@@ -25,8 +25,8 @@ export enum StepDuration {
 }
 
 export interface IOption {
-    value: number
-    label: string
+    value: number;
+    label: string;
 }
 
 export const BurimeStepsAmountOptions: IOption[] = [
@@ -45,35 +45,49 @@ export const StepDurationOptions: IOption[] = [
     { value: StepDuration.ExtraLong, label: '10 минут' },
 ];
 
-export const BurimeStepsAmountOptionsMap = BurimeStepsAmountOptions.reduce((acc, item) => {
-    acc[item.value] = item;
-    return acc;
-}, {});
+export const BurimeStepsAmountOptionsMap = BurimeStepsAmountOptions.reduce(
+    (acc, item) => {
+        acc[item.value] = item;
+        return acc;
+    },
+    {}
+);
 
-export const StepDurationOptionsMap = StepDurationOptions.reduce((acc, item) => {
-    acc[item.value] = item;
-    return acc;
-}, {});
+export const StepDurationOptionsMap = StepDurationOptions.reduce(
+    (acc, item) => {
+        acc[item.value] = item;
+        return acc;
+    },
+    {}
+);
 
 export class BurimeStep {
-    public id: number
-    public order: number
-    public row1: string
-    public row2: string
-    public createdAt: Date
-    public user: UserModel
-    public burime: BurimeModel
+    public id: number;
+    public order: number;
+    public row1: string;
+    public row2: string;
+    public createdAt: Date;
+    public user: UserModel;
+    public burime: BurimeModel;
 }
 
 export class BurimeModel {
-    public id: number
-    public name: string
-    public theme: string
-    public status: BurimeStatus
-    public stepsAmount: BurimeStepsAmount
-    public stepDuration: StepDuration
-    public createdAt: Date
-    public user1: UserModel
-    public user2: UserModel
-    public steps: BurimeStep[]
+    public id: number;
+    public name: string;
+    public theme: string;
+    public status: BurimeStatus;
+    public stepsAmount: BurimeStepsAmount;
+    public stepDuration: StepDuration;
+    public createdAt: Date;
+    public user1: UserModel;
+    public user2: UserModel;
+    public steps: BurimeStep[];
+    public likes: LikeModel[];
+}
+
+export class LikeModel {
+    public id: number;
+    public burime: BurimeModel;
+    public user: UserModel;
+    public createdAt: Date;
 }

@@ -37,7 +37,12 @@ export const Layout = ({ children }: Props) => {
                 <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet"></link>
             </Head>
             <Header></Header>
-            <Section>{user ? children : <Landing></Landing>}</Section>
+            <Section>
+                { user
+                    ? children
+                    : <Landing></Landing>
+                }
+            </Section>
             <ButterToast timeout={3000} />
         </SocketProvider>
     )

@@ -26,14 +26,6 @@ export const addAuthRoutes = async (server: Express) => {
             });
         }
 
-        if (false) {
-            console.log('-------');
-            console.log(`isAuthenticated():`, req.isAuthenticated())
-            console.log(`cookies:`, req.cookies)
-            console.log(`req.session: ${JSON.stringify(req.session)}`)
-            console.log(`req.user: ${JSON.stringify(req.user)}`)
-        }
-
         res.json({
             logged: req.isAuthenticated(),
             user: req.user,

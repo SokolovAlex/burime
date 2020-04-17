@@ -1,6 +1,6 @@
 import React from 'react'
 import { Logo } from '../Logo/Logo'
-import { Menu } from '../Menu/Menu'
+import { Menu } from './Menu/Menu'
 import { HeaderHost, MenuWrapper, LogoWraepper, HeaderContent } from './styled'
 
 const menuItems = []

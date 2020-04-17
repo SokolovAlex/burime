@@ -8,7 +8,11 @@
     "server": "ts-node --project tsconfig.json app.ts",
     "seed": "ts-node --project tsconfig.json db/seed.ts",
     "seed:poems": "ts-node --project tsconfig.json db/seed/poems.ts",
-    "clean": "rm db.sqlite"
+    "clean": "rm db.sqlite",
+    "migration:create": "ts-node node_modules/.bin/typeorm migration:create",
+    "migration:generate": "ts-node node_modules/.bin/typeorm migration:generate",
+    "migration:run": "ts-node node_modules/.bin/typeorm migration:run",
+    "migration:revert": "ts-node node_modules/.bin/typeorm migration:revert"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.6.0",

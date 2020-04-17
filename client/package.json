@@ -36,6 +36,7 @@
     "react-hook-form": "^3.28.9",
     "react-icons": "^3.8.0",
     "react-select": "^3.0.8",
+    "react-styled-carousel": "^0.5.1",
     "react-switch": "^5.0.1",
     "react-toastify": "^5.4.1",
     "react-use": "^13.12.2",

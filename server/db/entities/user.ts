@@ -1,3 +1,4 @@
+import { Like } from './like';
 import { BurimeStep } from './burime-step';
 import { Burime } from './burime';
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
@@ -37,4 +38,7 @@ export class User {
 
     @OneToMany(() => BurimeStep, step => step.user)
     public burimeSteps: BurimeStep[];
+
+    @OneToMany(() => Like, like => like.user)
+    public likes: Like[];
 }

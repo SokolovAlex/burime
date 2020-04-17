@@ -12,6 +12,7 @@ import { createBurime, newBurime, deleteBurime, deletedBurime, acceptBurime, acc
 
 export const BurimeCalls = () => {
     const user = useUser();
+    console.log(user);
     if (!user) { 
         return null;
     }  

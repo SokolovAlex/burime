@@ -1,3 +1,4 @@
+import { addLikeRoutes } from './routes/like';
 import { addBurimeRoutes } from './routes/burime';
 import { addMessagesRoutes } from './routes/messages';
 import { addAuthRoutes } from './routes/auth';
@@ -42,6 +43,7 @@ import initPassport from './passport';
     await initDb();
     await initPassport(server);
     await addUserRoutes(server);
+    await addLikeRoutes(server);
     await addAuthRoutes(server);
     await addMessagesRoutes(server);
     await addBurimeRoutes(server);

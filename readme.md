@@ -18,8 +18,17 @@ https://github.com/dielduarte/animate-css-styled-components
 export const key = '';
 export const secret = '';
 
+## typeorm
+## repository
+https://typeorm.delightful.studio/classes/_repository_repository_.repository.html
 
-ideas: 
+## migrations
+https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
+
+
+## ideas:
+0) likes + server paging
+7) active menu
 1) random theme
 2) random poem
 3) api рифм

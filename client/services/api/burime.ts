@@ -1,37 +1,48 @@
-import { BurimeModel, BurimeStatus } from '../../models/burime'
-import { useState, useEffect } from 'react'
+import { BurimeModel, BurimeStatus } from '../../models/burime';
+import { useState, useEffect } from 'react';
 import { getApi } from './api';
-import Router from 'next/router'
+import Router from 'next/router';
 
-const api = getApi()
+const api = getApi();
 
 const callsUrl = '/api/calls';
 const burimeUrl = '/api/burime';
 const myBurimeUrl = '/api/burime/my';
+const allBurimeUrl = '/api/burime/all';
 
-export const getBurimes = url =>
-    api.get<{ burimes: BurimeModel[] }>(url).then(response => response.data);
+export const getBurimes = (url, params?) =>
+    api
+        .get<{ burimes: BurimeModel[]; total?: number }>(url, { params })
+        .then(response => response.data);
 
 export const getBurime = id =>
-    api.get<{ burime: BurimeModel }>(`${burimeUrl}/${id}`).then(response => response.data);
-
-    
+    api
+        .get<{ burime: BurimeModel }>(`${burimeUrl}/${id}`)
+        .then(response => response.data);
 
 export const getFinishedBurime = id =>
-    api.get<{ burime: BurimeModel }>(`${burimeUrl}/${id}`, {
-        params: {
-            status: BurimeStatus.Finish
-        },
-    }).then(response => response.data);
+    api
+        .get<{ burime: BurimeModel }>(`${burimeUrl}/${id}`, {
+            params: {
+                status: BurimeStatus.Finish,
+            },
+        })
+        .then(response => response.data);
 
 export const getCalls = () =>
-    api.get<{ burimes: BurimeModel[] }>('/api/calls').then(response => response.data);
+    api
+        .get<{ burimes: BurimeModel[] }>('/api/calls')
+        .then(response => response.data);
 
 export const getActiveGame = () =>
-    api.get<{ burime: BurimeModel}>('/api/burime/active').then(response => response.data);
+    api
+        .get<{ burime: BurimeModel }>('/api/burime/active')
+        .then(response => response.data);
 
 export const getUserGames = () =>
-    api.get<{ burimes: BurimeModel[] }>('/api/burime/user-games').then(response => response.data);
+    api
+        .get<{ burimes: BurimeModel[] }>('/api/burime/user-games')
+        .then(response => response.data);
 
 export const useBurime = url => {
     const [loading, setLoading] = useState(true);
@@ -41,10 +52,10 @@ export const useBurime = url => {
         getBurimes(url)
             .then(data => setBurimes(data.burimes))
             .catch(err => setError(err))
-            .finally(() => setLoading(false))
+            .finally(() => setLoading(false));
     }, []);
-    return { loading, burimes, error };
-}
+    return { loading, burimes, error, setBurimes };
+};
 
 export const useGame = (id, user) => {
     const [loading, setLoading] = useState(true);
@@ -62,19 +73,22 @@ export const useGame = (id, user) => {
                     setError(`No burime with id: ${id}`);
                     return;
                 }
-                if (burime.user1.email !== user.email && burime.user2.email !== user.email) {
+                if (
+                    burime.user1.email !== user.email &&
+                    burime.user2.email !== user.email
+                ) {
                     setError(`not you game`);
                     return;
                 }
                 setBurime(data.burime);
             })
             .catch(err => setError(err))
-            .finally(() => setLoading(false))
+            .finally(() => setLoading(false));
     }, []);
     return { loading, burime, error };
 };
 
-export const useFinishedBurime = (id) => {
+export const useFinishedBurime = id => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
     const [burime, setBurime] = useState<BurimeModel>();
@@ -89,41 +103,59 @@ export const useFinishedBurime = (id) => {
                 setBurime(data.burime);
             })
             .catch(err => setError(err))
-            .finally(() => setLoading(false))
+            .finally(() => setLoading(false));
     }, []);
     return { loading, burime, error };
 };
 
 export const useMyBurimes = () => useBurime(myBurimeUrl);
 
-export const useCheckFinishedBurime = (id) => {
+export const useBurimesPage = ({
+    page,
+    size,
+}: {
+    page: number;
+    size: number;
+}) => {
+    const [loading, setLoading] = useState(true);
+    const [pageNumber, setPage] = useState(page);
+    const [pageSize, setPageSize] = useState(size);
+    const [error, setError] = useState(null);
+    const [burimes, setBurimes] = useState<BurimeModel[]>([]);
+    const [total, setTotal] = useState<number>();
+
     useEffect(() => {
-        getFinishedBurime(id)
+        getBurimes(allBurimeUrl, {
+            page: pageNumber,
+            size: pageSize,
+        })
             .then(data => {
-                if (data.burime) {
-                    goToBurime(id);
-                }
+                setBurimes(data.burimes);
+                setTotal(data.total);
             })
-    }, []);
+            .catch(err => setError(err))
+            .finally(() => setLoading(false));
+    }, [pageNumber]);
+    return { loading, burimes, error, total, setPage, setPageSize, setBurimes };
 };
 
-export const useUserGames = () => {
+export const useCheckFinishedBurime = id => {
     useEffect(() => {
-        getUserGames()
-            .then(data => {
-                console.log('active', data.burimes);
-            });
+        getFinishedBurime(id).then(data => {
+            if (data.burime) {
+                goToBurime(id);
+            }
+        });
     }, []);
 };
 
 export const useActiveBurime = () => {
     useEffect(() => {
-        getActiveGame()
-            .then(data => {
-                if (data.burime) {
-                    goToGame(data.burime.id);
-                }
-            });
+        getActiveGame().then(data => {
+            if (data.burime) {
+                goToGame(data.burime.id);
+            }
+        });
     }, []);
 };
 

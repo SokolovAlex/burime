@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { MenuList, MenuItem, MenuLink } from './styled';
-import { AuthModal } from '../AuthModal/AuthModal';
-import { useUser } from '../../services/contexts/auth';
-import { Avatar } from '../Header/Avatar/Avatar';
+import { AuthModal } from '../../AuthModal/AuthModal';
+import { useUser } from '../../../services/contexts/auth';
+import { Avatar } from '../Avatar/Avatar';
 
 interface MenuProps {
     items: any[]

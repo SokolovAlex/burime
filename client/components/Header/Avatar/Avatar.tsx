@@ -4,6 +4,7 @@ import { LogOut } from '@styled-icons/boxicons-regular/LogOut';
 import { Settings } from '@styled-icons/material/Settings';
 import { OpenBook } from '@styled-icons/entypo/OpenBook';
 import { Edit } from '@styled-icons/boxicons-regular/Edit';
+import { Spreadsheet } from '@styled-icons/boxicons-regular/Spreadsheet';
 import { useClickAway } from 'react-use';
 import {
     AvatarHost,
@@ -48,6 +49,10 @@ export const Avatar = ({ user }: AvatarProps) => {
                 <AvatarMenuItem href='/calls'>
                     <Edit width={16}/>
                     <AvatarMenuText>вызовы</AvatarMenuText>
+                </AvatarMenuItem>
+                <AvatarMenuItem href='/all'>
+                    <Spreadsheet width={16}/>
+                    <AvatarMenuText>все буриме</AvatarMenuText>
                 </AvatarMenuItem>
                 <AvatarMenuItem href='/my'>
                     <OpenBook width={16}/>

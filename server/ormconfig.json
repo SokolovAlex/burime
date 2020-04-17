@@ -2,8 +2,13 @@
     "type": "sqlite",
     "name": "default",
     "database": "db.sqlite",
-    "synchronize": true,
+    "synchronize": false,
     "logging": false,
+    "migrations": ["db/migration/*.js"],
+    "cli": {
+        "migrationsDir": "db/migration",
+        "entitiesDir": "db/entities"
+    },
     "entities": [
         "db/entities/**/*.ts"
     ]
