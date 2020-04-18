@@ -11,56 +11,33 @@ export const MySlider = ({ children, autoSlide }: IMySliderSettings) => {
     const childWidth = 100;
     const numberOfChildren = useMemo(() => Children.count(children), []);
     const [activeCard, setActiveCard] = useState(0);
-
-    const autoSlider = useMemo(() => {
-        return new Timer(() => {
-            let updatedInitialCard = 0;
-            if (numberOfChildren - 1 > activeCard) {
-                updatedInitialCard = activeCard + 1;
-            }
-            setActiveCard(updatedInitialCard);
-        }, autoSlide);
-    }, [activeCard])
+    const autoSlider = useMemo(() => new Timer(goRight, autoSlide), [])
 
     useEffect(() => {
-        if (autoSlide) {
-            autoSlider.start();
-        }
+        autoSlider.start();
         return () => {
-            if (autoSlider) {
-                autoSlider.stop();
-            }
+            autoSlider.stop();
         }
     }, []);
 
     const goLeft = useCallback((event) => {
         if (event && event.preventDefault) event.preventDefault();
-        let nextInitialCard = activeCard - 1;
-        if (nextInitialCard < 0) {
-            nextInitialCard = numberOfChildren - 1;
-        }
+        const nextInitialCard = activeCard < 1 ? numberOfChildren - 1 : activeCard - 1;
         setActiveCard(nextInitialCard);
     }, [activeCard]);
 
     const goRight = useCallback(() => {
         if (event && event.preventDefault) event.preventDefault();
-        let nextInitialCard = activeCard + 1;
-        if (numberOfChildren - 1 < nextInitialCard) {
-            nextInitialCard = 0;
-        }
+        const nextInitialCard = numberOfChildren < activeCard ? 0 : activeCard + 1;
         setActiveCard(nextInitialCard);
     }, [activeCard]);
 
     const renderChildren = (children) => {
-        const displayCards: any = [];
-        Children.forEach(children, (child, index) => {
-            displayCards.push((
-                <CardWrapper key={index} width={childWidth}>
-                    {child}
-                </CardWrapper>
-            ));
+        return Children.map(children, (child, index) => {
+            <CardWrapper key={index} width={childWidth}>
+                {child}
+            </CardWrapper>
         });
-        return displayCards;
     }
 
     const renderDots = () => {
