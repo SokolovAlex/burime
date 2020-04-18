@@ -1,17 +1,11 @@
 import React from "react";
 import { LandingItem, LandingWrapper, LandingPoint } from './styled';
 import { Title } from "../../atoms/Title/Title";
-import Slider from 'react-styled-carousel';
+import { MySlider } from './../../molecules/MySlider/MySlider';
 import { Slide } from "./Slide";
 
 const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    autoSlide: 30000,
-    cardsToShow: 1,
-    slidesToShow: 1,
-    slidesToScroll: 1
+    autoSlide: 3000,
 };
 
 export const Landing = () => (<LandingWrapper>
@@ -21,13 +15,14 @@ export const Landing = () => (<LandingWrapper>
         Здесь можно поиграть в литературную игру "Буриме" друг с другом
     </LandingItem>
 
-    <Slider {...settings}>
-        <Slide img='/fun.jpg' text='Это весело. Играй с друзьями'/>
-        <Slide right img='/idea.jpg'  text='Это креативно. Не границ для фантазии кроме рифм и размера'/>
-        <Slide img='/words1.jpg'  text='Это полезно. Лексикон и владение словом'/>
-        <Slide img='/heart.jpg'  text='Это арт-терапия. Разберись в себе вынимая из головы свои слова'/>
-        <Slide right img='/poetry.jpg'  text='Это поэзия. Учимся писать стихи'/>
-    </Slider>
+    <MySlider {...settings}>
+        <Slide img='/fun.jpg' title='Это весело' text='Играй с друзьями'/>
+        <Slide right img='/idea.jpg' title='Это креативно' text='Не границ для фантазии кроме рифм и размера'/>
+        <Slide img='/words1.jpg' title='Это полезно' text='Лексикон и владение словом'/>
+        <Slide right img='/heart.jpg' title='Это арт-терапия' text='Разберись в себе, вынимая из головы свои слова'/>
+        <Slide img='/poetry.jpg' title='Это поэзия' text='Учимся писать стихи'/>
+        <Slide right img='/words5.jpg' title='Это по-настоящему' text='Пишите реальные хиты'/>
+    </MySlider>
 
     <Title>Что такое Буриме</Title>
 

@@ -2,13 +2,13 @@ import React from "react";
 import styled from 'styled-components';
 import { fonts, colors, breakpoints } from "../../../constants";
 
-const SlideWrapper = styled.div`
+const SlideWrapper = styled.div<{ right?: boolean }>`
     display: flex;
     height: 400px;
     flex-direction: column;
 
     @media ${breakpoints.mobile} {
-        flex-direction: row;
+        flex-direction: ${props => props.right ? 'row-reverse' : 'row'};
     }
 `;
 
@@ -32,11 +32,18 @@ const ImageBlock = styled(SlideBlock)`
 
 const TextBlock = styled(SlideBlock)`
     padding: 30px;
-    font-size: 30px;
-    color: ${colors.primary};
+    font-size: 20px;
     align-items: center;
     display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    ${fonts.nunito}
+`;
 
+const SliderTitle = styled.div`
+    font-size: 36px;
+    color: ${colors.primary};
     ${fonts.neucha}
 `;
 
@@ -47,13 +54,14 @@ interface SlideProps {
     right?: boolean;
 }
 
-export const Slide = ({ text, img }: SlideProps) => (
-    <SlideWrapper>
+export const Slide = ({ title, right, text, img }: SlideProps) => (
+    <SlideWrapper right={right}>
         <ImageBlock>
             <img src={img}></img>
         </ImageBlock>
         <TextBlock>
-            {text}
+            <SliderTitle>{title}</SliderTitle>
+            <div>{text}</div>
         </TextBlock>
     </SlideWrapper>
 )
