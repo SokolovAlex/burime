@@ -1,4 +1,3 @@
-import React from "react";
 import styled from 'styled-components';
 
 export const SliderList = styled.div<{ translateX: number }>`
@@ -45,7 +44,7 @@ export const LeftArrow = styled.button`
     left: 0px;
     top: calc(50% - 5px);
     border: 0;
-    cursor: 'pointer';
+    cursor: pointer;
     outline: none;
     z-index: 1;
     :before {

@@ -11,14 +11,16 @@ export const MySlider = ({ children, autoSlide }: IMySliderSettings) => {
     const childWidth = 100;
     const numberOfChildren = useMemo(() => Children.count(children), []);
     const [activeCard, setActiveCard] = useState(0);
-    const autoSlider = useMemo(() => new Timer(goRight, autoSlide), [])
+    const [autoSlider, setAutoSlider] = useState<Timer>();
 
     useEffect(() => {
-        autoSlider.start();
+        const timer = new Timer(goRight, autoSlide);
+        setAutoSlider(timer);
+        timer.start();
         return () => {
-            autoSlider.stop();
+            timer.stop();
         }
-    }, []);
+    }, [activeCard]);
 
     const goLeft = useCallback((event) => {
         if (event && event.preventDefault) event.preventDefault();
@@ -28,17 +30,17 @@ export const MySlider = ({ children, autoSlide }: IMySliderSettings) => {
 
     const goRight = useCallback(() => {
         if (event && event.preventDefault) event.preventDefault();
-        const nextInitialCard = numberOfChildren < activeCard ? 0 : activeCard + 1;
+        const nextInitialCard = activeCard >= numberOfChildren - 1 ? 0 : activeCard + 1;
         setActiveCard(nextInitialCard);
     }, [activeCard]);
 
-    const renderChildren = (children) => {
-        return Children.map(children, (child, index) => {
+    const renderChildren = (children) => (
+        Children.map(children, (child, index) => (
             <CardWrapper key={index} width={childWidth}>
                 {child}
             </CardWrapper>
-        });
-    }
+        )
+    ));
 
     const renderDots = () => {
         const array = new Array(numberOfChildren);
@@ -47,7 +49,7 @@ export const MySlider = ({ children, autoSlide }: IMySliderSettings) => {
 
     return (
         <div
-            onMouseLeave={() => autoSlider && autoSlider.resume()}
+            onMouseLeave={() => autoSlider && autoSlider.start()}
             onMouseEnter={() => autoSlider && autoSlider.stop()}
         >
             <SliderWrapper>

@@ -7,12 +7,8 @@ export class Timer {
         clearInterval(this.timerId);
     }
 
-    resume() {
+    start() {
         clearInterval(this.timerId);
         this.timerId = setInterval(this.callback, this.delay);
-    }
-
-    start() {
-        this.resume();
     }
 }
