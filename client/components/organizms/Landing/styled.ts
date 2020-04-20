@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { shadow, colors, breakpoints, fonts } from '../../../constants';
+import { shadow, colors } from '../../../constants';
 
 export const LandingItem = styled.div`
     text-align: center;
@@ -37,55 +37,6 @@ export const LandingBlock = styled.div`
         background-color: ${ colors.primary };
         margin-right: 12px;
     }
-`;
-
-export const LandingRules = styled.div`
-    margin-bottom: 12px;
-`;
-
-export const SlideWrapper = styled.div<{ right?: boolean }>`
-    display: flex;
-    height: 400px;
-    flex-direction: column;
-
-    @media ${breakpoints.mobile} {
-        flex-direction: ${props => props.right ? 'row-reverse' : 'row'};
-    }
-`;
-
-export const SlideBlock = styled.div`
-    height: 50%;
-    margin: 10px;
-    @media ${breakpoints.mobile} {
-        width: 50%;
-        height: auto;
-    }
-`;
-
-export const ImageBlock = styled(SlideBlock)`
-    padding: 10px;
-    border: solid 1px silver;
-    & img {
-        width: 100%;
-        height: 100%;
-    }
-`;
-
-export const TextBlock = styled(SlideBlock)<{fontSize?: number}>`
-    padding: 30px;
-    font-size: ${({fontSize}) => fontSize ? `${fontSize}px` : '32px' };
-    align-items: center;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    text-align: center;
-    ${fonts.nunito}
-`;
-
-export const SliderTitle = styled.div`
-    font-size: 52px;
-    color: ${colors.primary};
-    ${fonts.neucha}
 `;
 
 

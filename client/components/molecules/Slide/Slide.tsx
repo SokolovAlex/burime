@@ -1,5 +1,5 @@
 import React from "react";
-import { SlideWrapper, ImageBlock, TextBlock, SliderTitle } from './styled';
+import { SlideWrapper, ImageBlock, TextBlock, SliderTitle, RuleNumber } from './styled';
 
 interface SlideProps {
     title?: string;
@@ -16,7 +16,7 @@ export const Slide = ({ title, right, slideNumber, text, img, fontSize }: SlideP
             <img src={img}></img>
         </ImageBlock>
         <TextBlock fontSize={fontSize}>
-            { slideNumber && <div>{slideNumber}</div>}
+            { slideNumber && <RuleNumber>{slideNumber}</RuleNumber>}
             { title && <SliderTitle>{title}</SliderTitle>}
             <div>{text}</div>
         </TextBlock>

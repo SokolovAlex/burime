@@ -29,7 +29,7 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 ## ideas:
 0) likes + server paging
 7) active menu
-1) random theme
+1) random title
 2) random poem
 3) api рифм
 4) favorites

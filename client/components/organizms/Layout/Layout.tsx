@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Head from 'next/head'
 import ButterToast from 'butter-toast'
 
@@ -18,9 +18,22 @@ const GlobalStyle = createGlobalStyle`
         font-size: 20px;
         font-family: 'Nunito', sans-serif;
     }
+    #__next{
+        height: 100%;
+    }
     a {
         color: black;
     }
+`;
+
+const SiteWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+	min-height: 100%;
+`;
+
+const MainSection = styled.div`
+    flex: 1 0 auto;
 `;
 
 interface Props {
@@ -31,20 +44,24 @@ export const Layout = ({ children }: Props) => {
     const user = useUser();
     return (
         <SocketProvider user={user}>
-            <GlobalStyle />
             <Head>
                 <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet"></link>
                 <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"/>
                 <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet"></link>
             </Head>
-            <Header/>
-            <Section>
-                { user
-                    ? children
-                    : <Landing/>
-                }
-            </Section>
-            <Footer/>
+            <GlobalStyle/>
+            <SiteWrapper>
+                <Header/>
+                <MainSection>
+                    <Section>
+                        { user
+                            ? children
+                            : <Landing/>
+                        }
+                    </Section>
+                </MainSection>
+                <Footer/>
+            </SiteWrapper>
             <ButterToast timeout={3000} />
         </SocketProvider>
     )

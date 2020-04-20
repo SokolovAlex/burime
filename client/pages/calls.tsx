@@ -1,2 +1,2 @@
 import redirect from 'nextjs-redirect'
-export default redirect('/')
+export default redirect('/');

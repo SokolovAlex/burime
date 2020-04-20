@@ -27,7 +27,7 @@ export const UserSettings = () => {
             <span>{user.email}</span>
         </InputRow>
         <InputRow margin={30}>
-            <InputLabel inline>Ваш псевдоним:</InputLabel>
+            <InputLabel inline>Псевдоним:</InputLabel>
             <Input placeholder='Введите своё имя'
                 onChange={(e) => {setUserName(e.target.value)}}
                 value={userName}/>

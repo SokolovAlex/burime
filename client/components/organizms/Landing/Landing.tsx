@@ -1,8 +1,9 @@
 import React from "react";
-import { LandingItem, LandingWrapper, LandingBlocks, LandingPromo, LandingBlock, LandingRules } from './styled';
+import { LandingItem, LandingWrapper, LandingBlocks, LandingPromo, LandingBlock } from './styled';
 import { Title } from "../../atoms/Title/Title";
 import { MySlider } from './../../molecules/MySlider/MySlider';
-import { Slide } from "./Slide";
+import { Rules } from "../../molecules/Rules/Rules";
+import { Slide } from "../../molecules/Slide/Slide";
 
 const settings = {
     autoSlide: 3000,
@@ -59,15 +60,5 @@ export const Landing = () => (<LandingWrapper>
     </LandingPromo>
 
     <Title>Правила игры</Title>
-
-    <LandingRules>
-        <LandingItem>
-            Представьте у вас есть лист бумаги, 2 ручки и желание поиграть в интеллектуальную игру и одновременно потренировать свои творческие навыки
-        </LandingItem>
-        <Slide img='/fun.jpg' text='Напишите 2 строчки на заданную тему'/>
-        <Slide right img='/fun.jpg' text='Затем согните листок так чтобы было видно только вашу последнюю строку и передайте другому игроку'/>
-        <Slide img='/fun.jpg' text='Второй игрок видит вашу последнюю строку и пишет свои две строки, стараясь максимально рифмовать и соблюдать размер стихотворения'/>
-        <Slide right img='/fun.jpg' text='Так продолжается пока не закончится бумага или оба игрока не решат остановиться'/>
-        <Slide img='/fun.jpg' text='Теперь разверните листок - прочтите что у Вас получилось в совместном творчестве. Возможно, перед вам без двух минут шедевр. '/>
-    </LandingRules>
+    <Rules/>
 </LandingWrapper>);

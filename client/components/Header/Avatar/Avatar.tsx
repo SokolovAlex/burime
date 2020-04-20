@@ -5,6 +5,8 @@ import { Settings } from '@styled-icons/material/Settings';
 import { OpenBook } from '@styled-icons/entypo/OpenBook';
 import { Edit } from '@styled-icons/boxicons-regular/Edit';
 import { Spreadsheet } from '@styled-icons/boxicons-regular/Spreadsheet';
+import { PencilRuler } from '@styled-icons/remix-line/PencilRuler';
+
 import { useClickAway } from 'react-use';
 import {
     AvatarHost,
@@ -57,6 +59,10 @@ export const Avatar = ({ user }: AvatarProps) => {
                 <AvatarMenuItem href='/my'>
                     <OpenBook width={16}/>
                     <AvatarMenuText>мои</AvatarMenuText>
+                </AvatarMenuItem>
+                <AvatarMenuItem href='/rules'>
+                    <PencilRuler width={16}/>
+                    <AvatarMenuText>правила</AvatarMenuText>
                 </AvatarMenuItem>
                 <AvatarMenuItem href='/settings'>
                     <Settings width={16}/>
