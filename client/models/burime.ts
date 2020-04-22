@@ -11,9 +11,8 @@ export enum BurimeStatus {
 export enum BurimeStepsAmount {
     Two = 2,
     Four = 4,
-    Eight = 8,
-    Twelve = 12,
-    Twenty = 20,
+    Seven = 7,
+    Ten = 10,
 }
 
 export enum StepDuration {
@@ -30,15 +29,14 @@ export interface IOption {
 }
 
 export const BurimeStepsAmountOptions: IOption[] = [
-    { value: BurimeStepsAmount.Two, label: '2 хода' },
-    { value: BurimeStepsAmount.Four, label: '4 хода' },
-    { value: BurimeStepsAmount.Eight, label: '8 ходов' },
-    { value: BurimeStepsAmount.Twelve, label: '12 ходов' },
-    { value: BurimeStepsAmount.Twenty, label: '20 ходов' },
+    { value: BurimeStepsAmount.Two, label: '4 строки' },
+    { value: BurimeStepsAmount.Four, label: '8 строк' },
+    { value: BurimeStepsAmount.Seven, label: '14 строк' },
+    { value: BurimeStepsAmount.Ten, label: '20 строк' },
 ];
 
 export const StepDurationOptions: IOption[] = [
-    { value: StepDuration.None, label: 'Без времени' },
+    { value: StepDuration.None, label: 'без огарничений' },
     { value: StepDuration.Fast, label: '1 минута' },
     { value: StepDuration.Mid, label: '2 минуты ' },
     { value: StepDuration.Long, label: '3 минуты' },

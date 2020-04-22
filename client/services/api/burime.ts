@@ -1,3 +1,4 @@
+import { randomTitle } from './../../../server/services/burime';
 import { BurimeModel, BurimeStatus } from '../../models/burime';
 import { useState, useEffect } from 'react';
 import { getApi } from './api';
@@ -9,6 +10,7 @@ const callsUrl = '/api/calls';
 const burimeUrl = '/api/burime';
 const myBurimeUrl = '/api/burime/my';
 const allBurimeUrl = '/api/burime/all';
+const randomTitleUrl = '/api/burime/random-title';
 
 export const getBurimes = (url, params?) =>
     api
@@ -158,6 +160,8 @@ export const useActiveBurime = () => {
         });
     }, []);
 };
+
+export const getRandomTitle = () => api.get(randomTitleUrl).then(response => response.data);
 
 export const useCalls = () => useBurime(callsUrl);
 

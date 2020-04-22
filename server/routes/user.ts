@@ -14,6 +14,9 @@ export const addUserRoutes = async (server: Express) => {
     server.post('/api/user/change-name', async (req, res) => {
         const user = req.user as User;
         const name = req.body.name;
+        if (name.length > 15) {
+            return res.status(417).json({ message: 'Слишком длинный псевдоним' });
+        }
         await userRepo.update(user.email, {
             name,
         });

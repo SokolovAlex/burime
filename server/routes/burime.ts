@@ -1,3 +1,4 @@
+import { randomTitle } from './../services/burime';
 import  { Express } from 'express';
 import { getConnection } from '../db';
 import { Burime, BurimeStatus } from '../db/entities/burime';
@@ -62,6 +63,10 @@ export const addBurimeRoutes = async (server: Express) => {
             relations: ['user1', 'user2'],
         });
         res.json({ burime });
+    });
+
+    server.get('/api/burime/random-title', (_, res) => {
+        res.json({ title: randomTitle() });
     });
 
     server.get('/api/burime/:id', async (req, res) => {

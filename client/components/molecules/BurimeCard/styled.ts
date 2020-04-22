@@ -87,3 +87,15 @@ export const EmptyMessage = styled.div`
     text-align: center;
     padding: 20px 0;
 `;
+
+export const IconButton = styled.div`
+    width: 30px;
+    display: inline-block;
+    margin-left: 20px;
+    color: black;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    :hover {
+        color: ${colors.primary};
+    }
+`;

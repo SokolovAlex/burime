@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import { useUserContext } from '../../../services/contexts/auth';
-import { Input, InputRow, InputLabel } from '../../atoms/Input/Input';
+import { Input, InputRow, InputLabel, InputHelp, InputValue } from '../../atoms/Input/Input';
 import { Title } from '../../atoms/Title/Title';
 import { Button } from '../../atoms/Button/Button';
 import { Size } from '../../../constants/enums';
 import { changeName } from '../../../services/api/user';
-import { success } from '../../../services/toast';
+import { success, error } from '../../../services/toast';
 
 export const UserSettings = () => {
     const { user, setUser } = useUserContext();
@@ -16,21 +16,30 @@ export const UserSettings = () => {
             .then(({ message }) => {
                 success('Успешно', message);
                 setUser({...user, name: userName });
-            }
-            ),
+            })
+            .catch(({ message }) => error('Ошибка', message )),
         [userName]);
+
+    const onChangeName = useCallback((e) => {
+            if (e.target.value.length <= 15) {
+                setUserName(e.target.value);
+            }
+        }, []);
 
     return <>
         <Title size={Size.lg}>Настройки</Title>
         <InputRow>
             <InputLabel inline>Email:</InputLabel>
-            <span>{user.email}</span>
+            <InputValue>{user.email}</InputValue>
         </InputRow>
         <InputRow margin={30}>
             <InputLabel inline>Псевдоним:</InputLabel>
-            <Input placeholder='Введите своё имя'
-                onChange={(e) => {setUserName(e.target.value)}}
-                value={userName}/>
+            <InputValue>
+                <Input placeholder='Введите своё имя'
+                    onChange={onChangeName}
+                    value={userName}/>
+                <InputHelp>Максимальное количесво символов - 15</InputHelp>
+            </InputValue>
         </InputRow>
         <Button onClick={onSave}>Сохранить</Button>
     </>;

@@ -11,6 +11,7 @@ export const InputHost = styled.input`
 
 export const InputRowHost = styled.div<{margin?: number }>`
     margin-bottom: ${props => props.margin || 12}px;
+    display: flex;
 `;
 
 export const InputLabelHost = styled.div`
@@ -18,6 +19,15 @@ export const InputLabelHost = styled.div`
 `;
 
 export const InputInlineLabel = styled.label`
-    display: inline-block;
-    width: 20%;
+    flex: 0 0 20%;
+`;
+
+export const InputHelp = styled.div`
+    padding-top: 8px;
+    font-size: 16px;
+    color: silver;
+`;
+
+export const InputValue = styled.div`
+    flex: 1 1 auto;
 `;

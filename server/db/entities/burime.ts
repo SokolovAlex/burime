@@ -14,9 +14,8 @@ export enum BurimeStatus {
 export enum BurimeStepsAmount {
     Two = 2,
     Four = 4,
-    Eight = 8,
-    Twelve = 12,
-    Twenty = 20,
+    Seven = 7,
+    Ten = 10,
 }
 
 export enum StepDuration {

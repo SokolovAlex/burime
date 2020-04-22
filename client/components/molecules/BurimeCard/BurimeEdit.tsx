@@ -5,6 +5,7 @@ import {
     SelectWrapper,
     BurimeEditBody,
     BurimeEditFooter,
+    IconButton,
 } from './styled';
 import {
     BurimeModel,
@@ -19,6 +20,8 @@ import { UserModel } from '../../../models/user';
 import { Input, InputRow, InputLabel } from '../../atoms/Input/Input';
 import { Size, ButtonType } from '../../../constants/enums';
 import { Button } from '../../atoms/Button/Button';
+import { Random } from '@styled-icons/fa-solid/Random'
+import { getRandomTitle } from '../../../services/api/burime';
 
 interface BurimeEditProps {
     burime: BurimeModel;
@@ -33,15 +36,21 @@ export const BurimeEdit = ({ burime, onSave, onCancel }: BurimeEditProps) => {
         BurimeStepsAmountOptions[1]
     );
     const [selectedDuration, setSelectedDuration] = useState<IOption>(
-        StepDurationOptions[1]
+        StepDurationOptions[0]
     );
     const [theme, setTheme] = useState(burime.theme);
 
     const onStepChange = useCallback(option => setSelectedSteps(option), []);
+    const onGetRandomTitle = useCallback(
+        () => getRandomTitle().then(({ title }) => setTheme(title)),
+        []
+    );
+
     const onDurationChange = useCallback(
         option => setSelectedDuration(option),
         []
     );
+
     const onThemeChange = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => setTheme(e.currentTarget.value),
         []
@@ -70,6 +79,7 @@ export const BurimeEdit = ({ burime, onSave, onCancel }: BurimeEditProps) => {
                         value={theme}
                         placeholder="введите заголовок"
                     ></Input>
+                    <IconButton onClick={onGetRandomTitle}><Random width={24}/></IconButton>
                 </InputRow>
 
                 <FlexRow withMargin>
@@ -86,6 +96,7 @@ export const BurimeEdit = ({ burime, onSave, onCancel }: BurimeEditProps) => {
                         <InputLabel>Время на строку</InputLabel>
                         <Select
                             isSearchable={false}
+                            isDisabled
                             value={selectedDuration}
                             onChange={onDurationChange}
                             options={StepDurationOptions}

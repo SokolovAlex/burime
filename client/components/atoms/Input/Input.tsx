@@ -1,5 +1,5 @@
 import React, { ReactNode, ChangeEvent, forwardRef, RefObject } from 'react';
-import { InputHost, InputRowHost, InputLabelHost, InputInlineLabel } from './styled';
+import { InputHost, InputRowHost, InputLabelHost, InputInlineLabel, InputHelp, InputValue } from './styled';
 
 interface InputProps {
     placeholder: string;
@@ -35,3 +35,5 @@ export const InputLabel = ({ children, inline }: InputLabelProps) => {
         <InputLabelHost>{children}</InputLabelHost>
     );
 };
+
+export { InputHelp, InputValue };

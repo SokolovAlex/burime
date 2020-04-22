@@ -30,7 +30,7 @@ export const error = (title: string, text: string) => {
     ButterToast.raise({
         content: (
             <Cinnamon.Crunch
-                icon={<MoodBadStyled></MoodBadStyled>}
+                icon={<MoodBadStyled fill='black'></MoodBadStyled>}
                 title={title}
                 content={text}
                 scheme={Cinnamon.Crunch.SCHEME_RED}
