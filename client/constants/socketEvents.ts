@@ -4,6 +4,7 @@ export const createBurime = 'create_burime';
 export const deleteBurime = 'delete_burime';
 export const acceptBurime = 'accept_burime';
 export const createStep = 'create_step';
+export const closeBurime = 'close_burime';
 
 // server
 export const getCommonMessage = 'new_message';

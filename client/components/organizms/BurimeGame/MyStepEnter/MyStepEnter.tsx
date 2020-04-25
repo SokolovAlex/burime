@@ -2,7 +2,7 @@ import React, { useState, useCallback, useMemo } from 'react';
 import useForm from 'react-hook-form';
 import { StepActions } from './styled';
 import { BurimeStep } from '../../../../models/burime';
-import { SubmitButton, Button } from '../../../Button/Button';
+import { SubmitButton, Button } from '../../../atoms/Button/Button';
 import { InputRow } from '../../../atoms/Input/Input';
 import { TextArea } from '../../../atoms/TextArea/TextArea';
 import { RedTitle } from '../../../atoms/Title/Title';

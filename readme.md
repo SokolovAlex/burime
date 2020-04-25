@@ -1,7 +1,6 @@
 https://console.developers.google.com/
 http://www.passportjs.org/docs/google/
 
-
 ## local auth
 https://code.tutsplus.com/ru/tutorials/authenticating-nodejs-applications-with-passport--cms-21619
 
@@ -37,8 +36,11 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 
 к запуску
 - ограничение на псевдоним +
-- отмена игры
+- отмена игры + danger + small +
 - время + 
-- google
-- beta
 - random title +
+- beta +
+
+- mobile
+- google
+- analitics

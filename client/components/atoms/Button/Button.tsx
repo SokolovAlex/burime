@@ -1,16 +1,16 @@
 import React, { ReactNode } from 'react'
-import { ButtonHost } from './styled'
-import { ButtonType } from '../../../constants/enums';
+import { ButtonHost, ButtonType } from './styled'
 
 interface IButtonProps {
     children: ReactNode;
     type?: ButtonType,
     onClick: () => void;
     width?: number;
+    size?: string;
 }
 
-export const Button = ({ children, width, type = ButtonType.primary, onClick }: IButtonProps) => (
-    <ButtonHost width={width} onClick={onClick} buttonType={type}>
+export const Button = ({ children, width, size, type = ButtonType.primary, onClick }: IButtonProps) => (
+    <ButtonHost size={size} width={width} onClick={onClick} buttonType={type}>
         {children}
     </ButtonHost>
 )
@@ -23,4 +23,4 @@ export const SubmitButton = ({ children }: ISubmitButton) => (
     <ButtonHost buttonType={ButtonType.primary} type="submit">{children}</ButtonHost>
 )
 
-export { ButtonType };
+export { ButtonType }

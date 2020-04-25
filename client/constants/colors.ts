@@ -5,5 +5,7 @@ export default {
     textPrimary: '#ffffff',
     secondary: '#e45151',
 
-    danger: '#e45151'
+    danger: '#e45151',
+
+    grey: '#111111',
 }

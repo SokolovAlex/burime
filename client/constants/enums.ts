@@ -3,8 +3,3 @@ export enum Size {
     md,
     lg,
 }
-
-export enum ButtonType {
-    primary,
-    white,
-}

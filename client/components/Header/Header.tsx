@@ -10,6 +10,7 @@ export const Header = () => (
         <HeaderContent>
             <LogoWraepper>
                 <Logo />
+                <div style={{textAlign: 'center', textDecoration: 'underline' }}>beta</div>
             </LogoWraepper>
             <MenuWrapper>
                 <Menu items={menuItems} />

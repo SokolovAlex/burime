@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const GameContainer = styled.div`
     display: flex;
+    min-height: 400px;
+    margin-bottom: 16px;
 `;
 
 export const CurrentStep = styled.div`
@@ -56,4 +58,18 @@ export const HiddenRow = styled.div`
     background-color: silver;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
     margin-bottom: 8px;
+`;
+
+export const BottomActions = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    & * {
+        margin-right: 12px;
+    }
+`;
+
+export const WarningMessage = styled.div`
+    font-size: 24px;
 `;

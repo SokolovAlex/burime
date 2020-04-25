@@ -18,8 +18,8 @@ import { useUser } from '../../../services/contexts/auth';
 import Select from 'react-select';
 import { UserModel } from '../../../models/user';
 import { Input, InputRow, InputLabel } from '../../atoms/Input/Input';
-import { Size, ButtonType } from '../../../constants/enums';
-import { Button } from '../../atoms/Button/Button';
+import { Size } from '../../../constants/enums';
+import { Button, ButtonType } from '../../atoms/Button/Button';
 import { Random } from '@styled-icons/fa-solid/Random'
 import { getRandomTitle } from '../../../services/api/burime';
 

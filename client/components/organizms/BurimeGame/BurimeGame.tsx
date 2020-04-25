@@ -11,6 +11,8 @@ import {
     GameProgress,
     GameResult,
     StepTime,
+    BottomActions,
+    WarningMessage,
 } from './styled';
 import { BurimeName } from '../../atoms/styled';
 import { MyStepEnter } from './MyStepEnter/MyStepEnter';
@@ -19,6 +21,7 @@ import {
     newStep,
     createStep,
     finishBurime,
+    closeBurime,
 } from '../../../constants/socketEvents';
 import { Book } from '@styled-icons/octicons/Book';
 import { Timer } from '@styled-icons/material/Timer';
@@ -28,6 +31,7 @@ import {
 } from '../../../services/api/burime';
 import { Author } from '../../atoms/Author/Author';
 import { BurimeTitle } from '../../atoms/styled';
+import { Button, ButtonType } from '../../atoms/Button/Button';
 
 interface BurimeGameProps {
     user: UserModel;
@@ -67,6 +71,7 @@ const BurimeGame = ({ burime, user }: BurimeGameProps) => {
     const [activeStep, setActiveStep] = useState(
         createActiveStep(burime, burimeSteps, user, opponent)
     );
+    const [confrim, setConfirm] = useState(false);
     useCheckFinishedBurime(id);
 
     useEffect(() => {
@@ -94,6 +99,10 @@ const BurimeGame = ({ burime, user }: BurimeGameProps) => {
         step => socket.emit(createStep, step),
         []
     );
+
+    const onCloseBurime = useCallback(() => setConfirm(true), []);
+    const onConfirm = useCallback(() => socket.emit(closeBurime, id), []);
+    const onCancel = useCallback(() => setConfirm(false), []);
 
     return (
         <>
@@ -143,6 +152,18 @@ const BurimeGame = ({ burime, user }: BurimeGameProps) => {
                     </GameResult>
                 </StepsWrapper>
             </GameContainer>
+            <BottomActions>
+                { confrim ?
+                    <>
+                        <WarningMessage>Вы уверены?</WarningMessage>
+                        <Button onClick={onConfirm} size='sm' type={ButtonType.danger}>Да</Button>
+                        <Button onClick={onCancel} size='sm' type={ButtonType.white}>Отмена</Button>
+                    </>
+                    : <>
+                        <Button onClick={onCloseBurime} size='sm' type={ButtonType.danger}>Прервать это буриме</Button>
+                    </>
+                }
+            </BottomActions>
         </>
     );
 };

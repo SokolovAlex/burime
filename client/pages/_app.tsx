@@ -18,7 +18,13 @@ export default class App extends NextApp<{}, {}, { user: UserModel }> {
             pageProps = await Component.getInitialProps(ctx);
         }
         const cookies = nCookies(ctx);
-        const { user, logged } = await status(cookies);
+        let statusResult;
+        try{
+            statusResult = await status(cookies);
+        } catch {
+            statusResult = {};
+        }
+        const { user, logged } = statusResult;
         return { pageProps: { ...pageProps, user, logged } };
     }
 

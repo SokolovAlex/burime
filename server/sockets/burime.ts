@@ -9,7 +9,8 @@ import {
     acceptedBurime,
     createStep,
     newStep,
-    finishBurime
+    finishBurime,
+    closeBurime,
 } from './events';
 import dayjs from 'dayjs';
 
@@ -17,7 +18,7 @@ export const subscribeBurimeEvents = (
     socket,
     burimeRepo,
     burimeStepsRepo,
-    io
+    io,
 ) => {
     socket.on(createBurime, async (burime: Burime) => {
         const dbBurime = await burimeRepo.save(burime);
@@ -35,6 +36,11 @@ export const subscribeBurimeEvents = (
         burime.status = BurimeStatus.Process;
         const dbBurime = await burimeRepo.save(burime);
         io.emit(acceptedBurime, dbBurime);
+    });
+
+    socket.on(closeBurime, async (id: string) => {
+        io.emit(finishBurime);
+        await burimeRepo.update(id, { status: BurimeStatus.Finish});
     });
 
     socket.on(createStep, async (step: BurimeStep) => {

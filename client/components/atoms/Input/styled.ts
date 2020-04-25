@@ -12,10 +12,12 @@ export const InputHost = styled.input`
 export const InputRowHost = styled.div<{margin?: number }>`
     margin-bottom: ${props => props.margin || 12}px;
     display: flex;
+    align-items: center;
 `;
 
 export const InputLabelHost = styled.div`
     margin-bottom: 4px;
+    margin-right: 20px;
 `;
 
 export const InputInlineLabel = styled.label`

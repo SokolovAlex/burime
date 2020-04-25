@@ -66,7 +66,8 @@ export const addBurimeRoutes = async (server: Express) => {
     });
 
     server.get('/api/burime/random-title', (_, res) => {
-        res.json({ title: randomTitle() });
+        const title = randomTitle();
+        res.json({ title: `${title.charAt(0).toUpperCase()}${title.slice(1)}` });
     });
 
     server.get('/api/burime/:id', async (req, res) => {
