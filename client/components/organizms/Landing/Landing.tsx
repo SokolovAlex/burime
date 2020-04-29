@@ -37,7 +37,7 @@ export const Landing = () => (<LandingWrapper>
         Возможно, кому-то эта игра поможет выйти из творческого тупика или будет источником новых идей и рифм.
     </LandingItem>
 
-    <Title>
+    <Title underline>
         Играйте в удовольствие и развивайтесь!
     </Title>
 

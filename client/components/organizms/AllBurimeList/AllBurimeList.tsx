@@ -12,6 +12,7 @@ import { HeartEmpty, OpenStyled, HeartFilled, ActionsBlock, Action } from '../..
 import { like, dislike } from '../../../services/api/likes';
 import DataTable from 'react-data-table-component';
 import { Spinner } from '../../atoms/Spinner/Spinner';
+import { breakpoints } from '../../../constants';
 
 const RowsPerPage = 20;
 
@@ -26,6 +27,8 @@ const prepareRows = (burimes: BurimeModel[], userEmail) =>
         likes: likes.length,
         createdAt: dayjs(createdAt).format('DD/MM/YYYY'),
     }));
+
+const mobileBreakpoint = parseInt(breakpoints.breakpointSizes.mobile, 10);
 
 const prepareColumns = ({
     onOpen,
@@ -42,12 +45,14 @@ const prepareColumns = ({
         selector: 'user1',
         sortable: true,
         right: true,
+        hide: mobileBreakpoint,
     },
     {
         name: 'Принял',
         selector: 'opponent',
         sortable: true,
         right: true,
+        hide: mobileBreakpoint,
     },
     {
         name: 'Дата',

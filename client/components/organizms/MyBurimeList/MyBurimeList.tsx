@@ -10,6 +10,7 @@ import { BurimeList } from '../../molecules/BurimeList/BurimeList';
 import { BurimeModel } from '../../../models/burime';
 import dayjs from 'dayjs';
 import { OpenStyled } from '../../atoms/styled';
+import { breakpoints } from '../../../constants';
 
 const prepareRows = (burimes: BurimeModel[]) =>
     burimes.map(({ id, theme, user1, user2, createdAt }) => ({
@@ -19,6 +20,8 @@ const prepareRows = (burimes: BurimeModel[]) =>
         opponent: user2.name,
         createdAt: dayjs(createdAt).format('DD/MM/YYYY'),
     }));
+
+const mobileBreakpoint = parseInt(breakpoints.breakpointSizes.mobile, 10);
 
 const prepareColumns = openBurime => [
     {
@@ -31,12 +34,14 @@ const prepareColumns = openBurime => [
         selector: 'user1',
         sortable: true,
         right: true,
+        hide: mobileBreakpoint,
     },
     {
         name: 'Принял',
         selector: 'opponent',
         sortable: true,
         right: true,
+        hide: mobileBreakpoint,
     },
     {
         name: 'Дата',

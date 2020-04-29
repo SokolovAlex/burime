@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { colors } from '../../../constants'
+import { colors, breakpoints } from '../../../constants'
 
 const fadeIn = keyframes`
     from {
@@ -18,13 +18,17 @@ export const AvatarHost = styled.div`
 
 export const AvatarName = styled.div`
     padding: 0 24px;
+    display: none;
+    @media ${breakpoints.mobile} {
+        display: block;
+    }
 `
 
 export const AvatarMenuWrapper = styled.div<{ open: boolean }>`
     display: flex;
-    width: 100%;
     align-items: center;
     position: absolute;
+    right: 0;
     display: ${props => (props.open ? 'block' : 'none')};
     animation: ${fadeIn} 0.3s linear;
     margin-top: 4px;
@@ -46,4 +50,5 @@ export const AvatarMenuItem = styled.a`
 export const AvatarMenuText = styled.div`
     margin-left: 8px;
     font-size: 16px;
+    text-align: left;
 `

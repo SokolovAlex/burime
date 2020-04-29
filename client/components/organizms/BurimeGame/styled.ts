@@ -1,9 +1,15 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../../constants';
 
 export const GameContainer = styled.div`
     display: flex;
+    flex-direction: column-reverse;
     min-height: 400px;
     margin-bottom: 16px;
+
+    @media ${breakpoints.mobile} {
+        flex-direction: row;
+    }
 `;
 
 export const CurrentStep = styled.div`

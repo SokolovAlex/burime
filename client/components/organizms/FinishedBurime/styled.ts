@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../../constants';
 
 export const StepsWrapper = styled.div`
     flex: 1 0 50%;
@@ -37,8 +38,12 @@ export const StepTime = styled.div`
 export const GameResult = styled.div`
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 80%;
     margin: auto;
+
+    @media ${breakpoints.mobile} {
+        width: 50%;
+    }
 `;
 
 export const HiddenRow = styled.div`

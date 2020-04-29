@@ -38,7 +38,7 @@ const FinishedBurime = ({ burime }: FinishedBurimeProps) => {
     } = burime;
     return (
         <>
-            {name && <BurimeName>({name})</BurimeName>}
+            {name && <BurimeName>#{name}</BurimeName>}
             <GameResult>
                 <GameDetails>
                     <GameProgress>

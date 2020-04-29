@@ -6,13 +6,14 @@ import { Section } from '../../atoms/Section/Section'
 const FooterSection = styled.div`
     border-top: 1px solid silver;
     background-color: #ececec;
-    padding: 20px 0;
+    margin-top: 20px;
     flex: 0 0 auto;
 `;
 
 const FooterWrapper = styled.div`
     display: flex;
     font-size: 20px;
+    padding: 20px;
 `;
 
 const FooterLeft = styled.div`
@@ -35,7 +36,7 @@ export const Footer = () => (
                 <FooterLeft>© 2020</FooterLeft>
                 <FooterRight>
                     Делитесь своими впечатлениями и идеями, договаривайтесь об играх в ВК.
-                    <FooterIconLink href='vk.com/club194477253'>
+                    <FooterIconLink href='https://vk.com/club194477253' target='_blank'>
                         <VkWithCircle width={24}/>
                     </FooterIconLink>
                 </FooterRight>

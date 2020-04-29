@@ -25,7 +25,7 @@ interface AvatarProps {
 }
 
 export const Avatar = ({ user }: AvatarProps) => {
-    const [open, setOpen] = useState();
+    const [open, setOpen] = useState(false);
     const toggleOpen = useCallback(() => setOpen(!open), [open]);
     const ref = useRef(null);
     useClickAway(ref, () => setOpen(false));

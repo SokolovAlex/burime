@@ -1,4 +1,4 @@
-const breakpointSizes = {
+export const breakpointSizes = {
     mobile: '720px',
     laptop: '1024px',
     desktop: '1280px',

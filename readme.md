@@ -4,14 +4,11 @@ http://www.passportjs.org/docs/google/
 ## local auth
 https://code.tutsplus.com/ru/tutorials/authenticating-nodejs-applications-with-passport--cms-21619
 
-
 ## check ts
 tsc **/*.ts
 
-
 ## animation
 https://github.com/dielduarte/animate-css-styled-components
-
 
 ## need local config with: 
 export const key = '';
@@ -36,11 +33,11 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 
 к запуску
 - ограничение на псевдоним +
-- отмена игры + danger + small +
+- отмена игры - danger - small +
 - время + 
 - random title +
 - beta +
 
 - mobile
-- google
+- google auth
 - analitics

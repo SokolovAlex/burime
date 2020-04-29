@@ -1,14 +1,18 @@
 import styled, { css } from 'styled-components';
-import { colors, animations } from './../../constants';
+import { colors, animations, breakpoints } from './../../constants';
 import { CloseO } from '@styled-icons/evil/CloseO';
 
 export const ChatContainer = styled.div`
     position: fixed;
-    bottom: 0;
-    width: 300px;
+    bottom: 110px;
+    width: 320px;
     right: 0;
     border: 1px solid silver;
     border-radius: 4px;
+
+    @media ${breakpoints.mobile} {
+        bottom: 66px;
+    }
 `;
 
 export const ChatHeader = styled.div<{ open: boolean }>`
@@ -36,6 +40,7 @@ export const ChatToolBar = styled.div`
     flex: 0 0 40px;
     display: flex;
     align-items: center;
+    background-color: white;
 `;
 
 export const ChatInput = styled.input`
@@ -43,7 +48,7 @@ export const ChatInput = styled.input`
     padding: 10px;
     padding-right: 24px;
     margin: 10px;
-    border: none;
+    border: solid 1px ${colors.primary};
     ::placeholder {
         color: ${colors.plaseholder};
     }
@@ -66,6 +71,7 @@ export const CloseIcon = styled(CloseO)`
     position: absolute;
     left: -35px;
     cursor: pointer;
+    background-color: white;
 `;
 
 export const MessagesContainer = styled.div`
