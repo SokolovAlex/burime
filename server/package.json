@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --project tsconfig.json --respawn --transpileOnly app.ts",
     "server": "ts-node --project tsconfig.json app.ts",
+    "prod": "npm run server",
     "seed": "ts-node --project tsconfig.json db/seed.ts",
     "seed:poems": "ts-node --project tsconfig.json db/seed/poems.ts",
     "clean": "rm db.sqlite",
