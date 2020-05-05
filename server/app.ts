@@ -17,7 +17,8 @@ import { initSocket } from './sockets';
 import initPassport from './passport';
 
 (async () => {
-    const dev = process.env.NODE_ENV !== 'production';
+    const dev = process.env.NODE_ENV !== 'prod';
+    const clientUrl = dev ? 'http://localhost:3002' : 'http://goburime.ru';
     const server = express();
     const http = createServer(server);
     const FileStore = sessionFileStore(expressSession);
@@ -26,7 +27,7 @@ import initPassport from './passport';
     server.use(flash());
     server.use(cors({
         credentials: true,
-        origin: "http://localhost:3002",
+        origin: clientUrl,
     }));
     server.use(cookieParser());
     server.use(bodyParser.json());
@@ -49,7 +50,7 @@ import initPassport from './passport';
     await addBurimeRoutes(server);
     await initSocket(io);
 
-    const port = dev ? 3003 : 80;
+    const port = 3003;
     const domain = dev ? 'localhost' : '0.0.0.0';
     http.listen(port, () => console.log(`> Ready on http://${domain}:${port}`));
 })()
