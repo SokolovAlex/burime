@@ -50,5 +50,6 @@ import initPassport from './passport';
     await initSocket(io);
 
     const port = dev ? 3003 : 80;
-    http.listen(port, () => console.log(`> Ready on http://localhost:${port}`));
+    const domain = dev ? 'localhost' : '0.0.0.0';
+    http.listen(port, () => console.log(`> Ready on http://${domain}:${port}`));
 })()
