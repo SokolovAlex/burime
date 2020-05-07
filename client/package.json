@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--max_old_space_size=4096 next -p 3002",
-    "prod": "cross-env NODE_OPTIONS=--max_old_space_size=4096 next -p 80",
+    "prod": "npm run build && npm run pm2",
+    "pm2": "pm2 start npm --name 'next' -- start -p 80",
     "build": "next build",
     "start": "next start -p 3002",
     "format": "prettier --write ./**/*.ts*"
@@ -30,6 +31,7 @@
     "next-cookies": "^2.0.3",
     "next-plugin-custom-babel-config": "^1.0.2",
     "nextjs-redirect": "^1.0.2",
+    "pm2": "^4.4.0",
     "react": "^16.11.0",
     "react-data-table-component": "^6.3.1",
     "react-dom": "^16.11.0",

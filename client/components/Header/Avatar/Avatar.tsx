@@ -32,7 +32,7 @@ export const Avatar = ({ user }: AvatarProps) => {
     const logOut = useCallback(async () => {
         try {
             const { status, data } = await signOut()
-            if (status === 421) {
+            if (status !== 200) {
                 error('Ошибка', data.message)
                 return
             }

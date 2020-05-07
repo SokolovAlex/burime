@@ -5,6 +5,7 @@ import { TextField } from '@material-ui/core'
 import Link from '@material-ui/core/Link'
 import { FaGoogle } from 'react-icons/fa'
 import useForm from 'react-hook-form'
+import { baseServerUrl } from '../../constants/urls'
 
 interface SignInProps {
     email?: string
@@ -20,19 +21,15 @@ export const SignIn = ({
     password,
 }: SignInProps) => {
     const { register, handleSubmit } = useForm({
-        // defaultValues: {
-        //     email,
-        //     password,
-        // },
         defaultValues: {
-            email: 'ierroglif@mail.ru',
-            password: '123456',
+            email,
+            password,
         },
-    })
+    });
     return (
         <form onSubmit={handleSubmit(onSubmit)} key="signIn">
             <Centered>
-                <a href="/auth/google">
+                <a href={`${baseServerUrl}/auth/google`}>
                     <FaGoogle size="24" />
                 </a>
             </Centered>

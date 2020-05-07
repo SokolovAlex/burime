@@ -24,7 +24,7 @@ export default async (server: Express) => {
     passport.use(new GoogleStrategy({
         consumerKey: key,
         consumerSecret: secret,
-        callbackURL: "http://localhost:3000/auth/google/callback"
+        callbackURL: "http://localhost:3002/auth/google/callback"
     },
         async (_, __, profile, done) => {
             console.log('profile-->', profile);

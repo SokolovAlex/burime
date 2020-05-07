@@ -20,7 +20,7 @@ export const SlideBlock = styled.div`
     margin: 10px;
     @media ${breakpoints.mobile} {
         width: 50%;
-        height: auto;
+        height: 100%;
     }
 `;
 

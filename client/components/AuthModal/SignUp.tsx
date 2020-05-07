@@ -11,14 +11,7 @@ interface SignUpProps {
 }
 
 export const SignUp = ({ onSubmit, onToggle }: SignUpProps) => {
-    const { register, handleSubmit } = useForm({
-        defaultValues: {
-            name: 'alex',
-            email: 'ierroglif@mail.ru',
-            password: '123456',
-            password_repeat: '123456',
-        },
-    })
+    const { register, handleSubmit } = useForm();
     return (
         <form onSubmit={handleSubmit(onSubmit)} key="signUp">
             <InputWrapper>

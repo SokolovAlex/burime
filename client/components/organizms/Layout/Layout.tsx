@@ -45,9 +45,13 @@ export const Layout = ({ children }: Props) => {
     return (
         <SocketProvider user={user}>
             <Head>
+                <title>Буриме</title>
                 <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet"></link>
                 <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"/>
-                <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet"></link>
+                <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet"/>
+                <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png"/>
+                <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png"/>
+                <link rel="manifest" href="favicon/site.webmanifest"></link>
             </Head>
             <GlobalStyle/>
             <SiteWrapper>

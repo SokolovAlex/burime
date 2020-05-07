@@ -12,15 +12,16 @@ interface AuthModalProps {
 }
 
 export const AuthModal = ({ isOpen, setOpen }: AuthModalProps) => {
-    const [signInMode, setSignIn] = useState(true)
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [signInMode, setSignIn] = useState(true);
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
 
     const onLogin = useCallback(async ({ email, password }) => {
         const { status, data } = await signIn({
             email,
             password,
         })
+
         if (status !== 200) {
             error('Ошибка', data.message)
             return
