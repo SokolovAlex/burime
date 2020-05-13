@@ -1,10 +1,11 @@
 import passport from 'passport';
 import  { Express } from 'express';
-import { OAuthStrategy as GoogleStrategy } from 'passport-google-oauth';
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { getConnection } from './../db/index';
 import { User } from './../db/entities/user';
 import { Strategy as LocalStrategy } from 'passport-local';
 import { key, secret } from './../config.local';
+import { serverUrl } from './../config';
 
 import { salt, hash, compare } from './../services/crypt';
 
@@ -17,22 +18,23 @@ export default async (server: Express) => {
 
     passport.serializeUser((user: User, done) => done(null, user.email))
     passport.deserializeUser(async (email, done) => {
-        const user = await userRepo.findOne({ email: email as string });
+        const user = await userRepo.findOne({ where: { email } });
         done(null, user);
     });
 
     passport.use(new GoogleStrategy({
-        consumerKey: key,
-        consumerSecret: secret,
-        callbackURL: "http://localhost:3002/auth/google/callback"
+        clientID: key,
+        clientSecret: secret,
+        callbackURL: `${serverUrl}/auth/google/callback`,
     },
         async (_, __, profile, done) => {
-            console.log('profile-->', profile);
-            let user = await userRepo.findOne({ email: profile.email });
+            const email = profile.emails[0].value;
+            let user = await userRepo.findOne({ where: { email } });
             if (!user) {
-                user = await userRepo.create({
-                    name: 'profile',
-                    email: profile.email,
+                user = await userRepo.save({
+                    name: profile.displayName,
+                    email,
+                    type: 'google',
                     lastEnterAt: new Date(),
                 });
             }

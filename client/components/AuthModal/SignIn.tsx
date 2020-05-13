@@ -1,5 +1,5 @@
 import React from 'react'
-import { InputWrapper, ActionsWrapper, Centered, LightText } from './styled'
+import { InputWrapper, GoogleButton, ActionsWrapper, Centered, LightText } from './styled'
 import { SubmitButton } from '../atoms/Button/Button'
 import { TextField } from '@material-ui/core'
 import Link from '@material-ui/core/Link'
@@ -26,12 +26,14 @@ export const SignIn = ({
             password,
         },
     });
+
     return (
         <form onSubmit={handleSubmit(onSubmit)} key="signIn">
             <Centered>
-                <a href={`${baseServerUrl}/auth/google`}>
+                <GoogleButton href={`${baseServerUrl}/auth/google`}>
                     <FaGoogle size="24" />
-                </a>
+                    <span>Войти</span>
+                </GoogleButton>
             </Centered>
             <Centered>
                 <LightText>или</LightText>

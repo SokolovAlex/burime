@@ -15,10 +15,9 @@ import { createServer } from 'http';
 import { initDb } from './db';
 import { initSocket } from './sockets';
 import initPassport from './passport';
+import { domain, port, clientUrl } from './config';
 
 (async () => {
-    const dev = process.env.NODE_ENV !== 'prod';
-    const clientUrl = dev ? 'http://localhost:3002' : 'http://goburime.ru';
     const server = express();
     const http = createServer(server);
     const FileStore = sessionFileStore(expressSession);
@@ -50,7 +49,5 @@ import initPassport from './passport';
     await addBurimeRoutes(server);
     await initSocket(io);
 
-    const port = 3003;
-    const domain = dev ? 'localhost' : '0.0.0.0';
     http.listen(port, () => console.log(`> Ready on http://${domain}:${port}`));
 })()

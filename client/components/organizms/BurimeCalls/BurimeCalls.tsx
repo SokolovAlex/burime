@@ -8,6 +8,7 @@ import { getCalls, goToGame, useActiveBurime } from "../../../services/api/burim
 import { BurimeEdit } from "../../molecules/BurimeCard/BurimeEdit";
 import { BurimeModel } from "../../../models/burime";
 import { BurimeCallList } from "../../molecules/BurimeCard/BurimeCallList";
+import { Spinner } from '../../atoms/Spinner/Spinner';
 import { createBurime, newBurime, deleteBurime, deletedBurime, acceptBurime, acceptedBurime } from "../../../constants/socketEvents";
 
 export const BurimeCalls = () => {
@@ -101,7 +102,7 @@ export const BurimeCalls = () => {
                     }
                 </>
             )
-            : 'loading...'
+            : <Spinner/>
         }
     </>
 }

@@ -1,3 +1,4 @@
+import { clientUrl } from './../config';
 import { Express } from 'express';
 import passport from 'passport';
 import session from 'express-session';
@@ -14,10 +15,17 @@ export const addAuthRoutes = async (server: Express) => {
         });
     }
 
-    server.get('/auth/google', passport.authenticate('google', { scope: 'https://www.google.com/m8/feeds' }));
+    server.get('/auth/google', passport.authenticate('google', {
+        scope: [
+            'https://www.googleapis.com/auth/plus.login',
+            'https://www.googleapis.com/auth/userinfo.email',
+            'https://www.googleapis.com/auth/userinfo.profile',
+        ]
+    }));
+
     server.get('/auth/google/callback', 
         passport.authenticate('google', { failureRedirect: '/login' }),
-        (_, res) => res.redirect('/'));
+        (_, res) => res.redirect(clientUrl));
 
     server.get('/auth/status', (req, res) => {
         if (!req.session) {

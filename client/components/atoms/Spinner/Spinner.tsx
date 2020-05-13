@@ -10,7 +10,7 @@ const rotate360 = keyframes`
     }
 `;
 
-export const Spinner = styled.div`
+const SpinnerBase = styled.div`
     margin: 16px;
     animation: ${rotate360} 1s linear infinite;
     transform: translateZ(0);
@@ -23,3 +23,14 @@ export const Spinner = styled.div`
     height: 80px;
     border-radius: 50%;
 `;
+
+const SpinnerWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+export const Spinner = () => (
+    <SpinnerWrapper>
+        <SpinnerBase/>
+    </SpinnerWrapper>
+)
