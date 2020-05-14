@@ -23,7 +23,7 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 
 
 ## ideas:
-0) likes + server paging
+0) server paging
 7) active menu
 2) random poem
 3) api рифм
@@ -32,12 +32,5 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 6) time
 
 к запуску
-- ограничение на псевдоним +
-- отмена игры - danger - small +
-- время + 
-- random title +
-- beta +
-
-- mobile
-- google auth
 - analitics
+- server paging + sorts
