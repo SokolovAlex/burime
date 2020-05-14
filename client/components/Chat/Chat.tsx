@@ -16,6 +16,7 @@ import {
     MessageDate,
     ChatInput,
     ContentWrapper,
+    ChatHeaderInner,
 } from './styled';
 import { isClient } from '../../config';
 import { useUser } from '../../services/contexts/auth';
@@ -40,7 +41,7 @@ export const Chat = () => {
     const openChat = useCallback(() => {
         if (open) return;
         if (!endEl || !endEl.current) return;
-        endEl.current.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => endEl.current && endEl.current.scrollIntoView({ behavior: 'smooth' }), 500);
         setOpen(true);
     }, [open]);
     const printMessage = (e: ChangeEvent<HTMLInputElement>) =>
@@ -55,14 +56,16 @@ export const Chat = () => {
 
     return (
         <ChatContainer>
-            <ChatHeader onClick={openChat} open={open}>
-                {open && <CloseIcon onClick={() => setOpen(false)}></CloseIcon>}
-                <div>Общий чат</div>
-                <UsersBadge amount={activeUsers} />
-            </ChatHeader>
+            { !open && <ChatHeader onClick={openChat}>
+                    <ChatHeaderInner>
+                        <UsersBadge amount={activeUsers} />
+                    </ChatHeaderInner>
+                </ChatHeader>
+            }
             <CSSTransition in={open} timeout={500}>
                 <ChatInner>
                     <ContentWrapper>
+                        <CloseIcon onClick={() => setOpen(false)}></CloseIcon>
                         <MessagesContainer>
                             {messages.map(message => (
                                 <ChatMessage key={message.id}>

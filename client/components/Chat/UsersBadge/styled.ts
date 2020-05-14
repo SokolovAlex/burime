@@ -1,23 +1,19 @@
 import styled from 'styled-components';
-
+import { colors } from '../../../constants';
 
 export const UsersBadgeHost = styled.div`
-    position: absolute;
-    right: 12px;
-    top: 0;
     height: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
 `;
 
 export const UsersBadgeContent = styled.div`
     display: flex;
-    align-items: center;
-    background-color: white;
-    color: silver;
     border-radius: 8px;
     padding: 0 8px;
-
+    color: ${colors.primary};
+    align-items: center;
 `;
 
 export const UsersBadgeAmount = styled.div`

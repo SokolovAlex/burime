@@ -1,38 +1,53 @@
 import styled, { css } from 'styled-components';
-import { colors, animations, breakpoints } from './../../constants';
+import { colors, animations, breakpoints, shadow } from './../../constants';
 import { CloseO } from '@styled-icons/evil/CloseO';
 
 export const ChatContainer = styled.div`
     position: fixed;
     bottom: 110px;
-    width: 320px;
     right: 0;
-    border: 1px solid silver;
-    border-radius: 4px;
-
     @media ${breakpoints.mobile} {
         bottom: 66px;
     }
 `;
 
-export const ChatHeader = styled.div<{ open: boolean }>`
+export const ChatHeader = styled.div`
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: ${colors.primary};
-    color: ${colors.textPrimary};
-    text-align: center;
     padding: 10px;
     font-family: 'Neucha', cursive;
     position: relative;
-    ${props =>
-        !props.open &&
-        css`
-            cursor: pointer;
-        `}
+    cursor: pointer;
+    ${shadow.simple}
+    transition: background-color 0.3s ease-in-out;
+    &:hover {
+        background-color: #005e7d;
+    }
+`;
+
+export const ChatHeaderInner = styled.div`
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    background-color: silver;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        width: 98%;
+        height: 98%;
+    }
 `;
 
 export const ChatInner = styled.div`
-    ${animations.slider}
-    display: flex;
-    flex-direction: column;
+    border: 1px solid silver;
+    border-radius: 2px;
+    ${shadow.small}
+    ${animations.fade}
 `;
 
 export const ChatToolBar = styled.div`
@@ -69,7 +84,7 @@ export const CloseIcon = styled(CloseO)`
     color: ${colors.primary};
     width: 32px;
     position: absolute;
-    left: -35px;
+    left: -37px;
     cursor: pointer;
     background-color: white;
 `;

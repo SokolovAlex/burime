@@ -31,3 +31,28 @@ export const slider = css`
         display: none;
     }
 `
+
+export const fade = css`
+    opacity: 0;
+    display: none;
+    transition: opacity 500ms ease-in;
+    &.enter {
+        display: block;
+    }
+    &.enter-done {
+        display: block;
+        opacity: 1;
+    }
+`
+
+
+export const fadeOut = css`
+    transition: opacity 500ms ease-in;
+    opacity: 1;
+    &.enter {
+        opacity: 0;
+    }
+    &.enter-done {
+        display: none;
+    }
+`
