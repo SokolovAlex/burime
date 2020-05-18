@@ -30,6 +30,7 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 4) favorites
 5) room chat
 6) time
+7) Vk
 
 к запуску
 - analitics

@@ -4,7 +4,7 @@ import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { getConnection } from './../db/index';
 import { User } from './../db/entities/user';
 import { Strategy as LocalStrategy } from 'passport-local';
-import { key, secret } from './../config.local';
+import { key, secret } from './../config';
 import { serverUrl } from './../config';
 
 import { salt, hash, compare } from './../services/crypt';

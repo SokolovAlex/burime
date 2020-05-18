@@ -21,7 +21,7 @@ export class User {
     @Column({default: 'local'})
     public type: UserType;
 
-    @Column('datetime')
+    @Column('time')
     public lastEnterAt: Date;
 
     @OneToMany(() => Log, log => log.user)

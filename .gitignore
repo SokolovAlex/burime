@@ -1,7 +1,6 @@
 **/node_modules/
 client/.next/
 /sessions
-
-/sessions
+server/sessions
 
 config.prod.ts
