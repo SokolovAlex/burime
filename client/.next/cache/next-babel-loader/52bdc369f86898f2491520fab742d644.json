@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from 'styled-components';\nexport var ButtonWrapper = styled.div.withConfig({\n  displayName: \"styled__ButtonWrapper\",\n  componentId: \"sc-1rgm675-0\"\n})([\"display:flex;justify-content:center;\"]);","map":null,"metadata":{},"sourceType":"module"}

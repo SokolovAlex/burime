@@ -1,0 +1,1 @@
+{"ast":null,"code":"import redirect from 'nextjs-redirect';\nexport default redirect('/');","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { css } from 'styled-components';\nexport var fredericka = css([\"font-family:'Fredericka the Great',cursive;\"]);\nexport var nunito = css([\"font-family:'Nunito',sans-serif;\"]);\nexport var neucha = css([\"font-family:'Neucha',cursive;\"]);","map":null,"metadata":{},"sourceType":"module"}

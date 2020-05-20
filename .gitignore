@@ -1,5 +1,5 @@
 **/node_modules/
-client/.next/
+#client/.next/
 /sessions
 server/sessions
 

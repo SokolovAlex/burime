@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from 'styled-components';\nexport var LoaderWrapper = styled.div.withConfig({\n  displayName: \"styled__LoaderWrapper\",\n  componentId: \"lm98x6-0\"\n})([\"display:flex;justify-content:center;align-items:center;min-height:\", \";\"], function (props) {\n  return props.wide ? '200px' : 'auto';\n});","map":null,"metadata":{},"sourceType":"module"}

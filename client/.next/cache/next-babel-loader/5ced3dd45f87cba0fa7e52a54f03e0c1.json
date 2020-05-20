@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default {\n  primary: '#498ea5',\n  plaseholder: '#498ea5',\n  lightPrimary: '#d0f3ff',\n  textPrimary: '#ffffff',\n  secondary: '#e45151',\n  danger: '#e45151',\n  grey: '#111111'\n};","map":null,"metadata":{},"sourceType":"module"}

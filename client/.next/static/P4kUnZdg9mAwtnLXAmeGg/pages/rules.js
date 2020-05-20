@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{"UYK/":function(n,e,t){(window.__NEXT_P=window.__NEXT_P||[]).push(["/rules",function(){return t("o3JK")}])},o3JK:function(n,e,t){"use strict";t.r(e);var u=t("q1tI"),a=t.n(u),o=t("nP3O"),r=t("1C+D");a.a.createElement;e.default=function(){return a.a.createElement(r.a,null,a.a.createElement(o.a,null))}}},[["UYK/",0,1]]]);
