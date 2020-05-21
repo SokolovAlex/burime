@@ -3,7 +3,7 @@ import { Rules } from '../components/molecules/Rules/Rules';
 import { Layout } from '../components/organizms/Layout/Layout';
 
 const Page = () => (
-    <Layout>
+    <Layout noAuth>
         <Rules />
     </Layout>
 )

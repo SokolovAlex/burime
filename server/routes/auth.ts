@@ -55,7 +55,7 @@ export const addAuthRoutes = async (server: Express) => {
         })(req, res);
     });
 
-    server.post('/auth/logout', logged, (req, res) => {
+    server.post('/auth/logout', (req, res) => {
         req.logout();
         res.json();
     });

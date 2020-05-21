@@ -37,10 +37,11 @@ const MainSection = styled.div`
 `;
 
 interface Props {
-    children: ReactNode
+    children: ReactNode;
+    noAuth?: boolean;
 }
 
-export const Layout = ({ children }: Props) => {
+export const Layout = ({ children, noAuth }: Props) => {
     const user = useUser();
     return (
         <SocketProvider user={user}>
@@ -58,7 +59,7 @@ export const Layout = ({ children }: Props) => {
                 <Header/>
                 <MainSection>
                     <Section>
-                        { user
+                        { user || noAuth
                             ? children
                             : <Landing/>
                         }

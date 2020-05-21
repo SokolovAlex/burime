@@ -39,7 +39,7 @@ export default class App extends NextApp<{}, {}, { user: UserModel }> {
     };
 
     render() {
-        const { Component, pageProps } = this.props;
+        const { Component, pageProps, router } = this.props;
         const { logged } = pageProps;
         return (
             <UserContext.Provider
@@ -49,7 +49,7 @@ export default class App extends NextApp<{}, {}, { user: UserModel }> {
                     setUser: (user: UserModel) => this.setUser(user),
                 }}
             >
-                <Component {...pageProps} />
+                <Component {...pageProps} route={router.route}/>
             </UserContext.Provider>
         );
     }

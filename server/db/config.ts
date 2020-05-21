@@ -6,8 +6,8 @@ export const pgConfig: ConnectionOptions = {
     "username": process.env.pg_user,
     "password": process.env.pg_password, 
     "database": "burime",
-    "synchronize": true,
-    "logging": true,
+    "synchronize": false,
+    "logging": false,
     "migrations": ["db/migration/*.js"],
     "cli": {
         "migrationsDir": "db/migration",
