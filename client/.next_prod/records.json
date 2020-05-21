@@ -62,24 +62,34 @@
       "static\\nuYZejaK_9gCeqy85XMsI\\pages\\index.js": 10,
       "static\\nuYZejaK_9gCeqy85XMsI\\pages\\my.js": 11,
       "static\\nuYZejaK_9gCeqy85XMsI\\pages\\rules.js": 12,
-      "static\\nuYZejaK_9gCeqy85XMsI\\pages\\settings.js": 13
+      "static\\nuYZejaK_9gCeqy85XMsI\\pages\\settings.js": 13,
+      "static\\s4Zz5kCImAvSRm86Fvf5D\\pages\\_app.js": 14,
+      "static\\s4Zz5kCImAvSRm86Fvf5D\\pages\\_error.js": 15,
+      "static\\s4Zz5kCImAvSRm86Fvf5D\\pages\\all.js": 16,
+      "static\\s4Zz5kCImAvSRm86Fvf5D\\pages\\burime\\[id].js": 17,
+      "static\\s4Zz5kCImAvSRm86Fvf5D\\pages\\calls.js": 18,
+      "static\\s4Zz5kCImAvSRm86Fvf5D\\pages\\game\\[id].js": 19,
+      "static\\s4Zz5kCImAvSRm86Fvf5D\\pages\\index.js": 20,
+      "static\\s4Zz5kCImAvSRm86Fvf5D\\pages\\my.js": 21,
+      "static\\s4Zz5kCImAvSRm86Fvf5D\\pages\\rules.js": 22,
+      "static\\s4Zz5kCImAvSRm86Fvf5D\\pages\\settings.js": 23
     },
     "bySource": {},
     "usedIds": [
       0,
       1,
-      10,
-      11,
-      12,
-      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
       2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9
+      20,
+      21,
+      22,
+      23,
+      3
     ]
   }
 }

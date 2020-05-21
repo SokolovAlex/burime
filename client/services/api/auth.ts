@@ -15,7 +15,7 @@ const errorHandle = (error, unknownMessage) => {
 
 export const registration = (user: User) => api.post('auth/registration', user).catch(error => errorHandle(error, 'Регистрация недоступна') );
 export const signIn = (user: User) => api.post('auth/login', user).catch(error => errorHandle(error, 'Авторизация недоступна') );
-export const signOut = () => api.post('auth/logout').catch(error => errorHandle(error, 'Неизвестная ошибка') );
+export const signOut = () => api.get('auth/logout').catch(error => errorHandle(error, 'Неизвестная ошибка') );
 export const status = async (cookie: any) => {
     const { status, data } = await api.get<{ logged: boolean; user: any }>(
         'auth/status',
