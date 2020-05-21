@@ -100,6 +100,7 @@ export const MessagesContainer = styled.div`
 
 export const ContentWrapper = styled.div`
     height: 400px;
+    width: 360px;
     flex: 1 1 auto;
     overflow-y: scroll;
 `;

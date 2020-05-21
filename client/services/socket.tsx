@@ -1,8 +1,7 @@
 import Socket from 'socket.io-client'
 import React, { createContext, useContext, Component } from 'react'
-import { UserModel } from '../models/user'
-
-const serverUrl = 'http://localhost:3003'
+import { UserModel } from '../models/user';
+import { baseServerUrl } from '../config';
 
 export const SocketContext = createContext<SocketIOClient.Socket | null>(null)
 
@@ -25,7 +24,7 @@ export class SocketProvider extends Component<{
             return
         }
         this.state = {
-            socket: Socket(serverUrl, props.opts || { 
+            socket: Socket(baseServerUrl, props.opts || { 
                 query: `user=${props.user.email}`,
             }),
         }

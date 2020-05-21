@@ -63,23 +63,34 @@
       "static\\rtzDfnxitwQbTtLfZae4L\\pages\\index.js": 9,
       "static\\rtzDfnxitwQbTtLfZae4L\\pages\\my.js": 10,
       "static\\rtzDfnxitwQbTtLfZae4L\\pages\\rules.js": 11,
-      "static\\rtzDfnxitwQbTtLfZae4L\\pages\\settings.js": 12
+      "static\\rtzDfnxitwQbTtLfZae4L\\pages\\settings.js": 12,
+      "static\\yHDVt-0AuePagn8zCoAfV\\pages\\_app.js": 13,
+      "static\\yHDVt-0AuePagn8zCoAfV\\pages\\_document.js": 14,
+      "static\\yHDVt-0AuePagn8zCoAfV\\pages\\_error.js": 15,
+      "static\\yHDVt-0AuePagn8zCoAfV\\pages\\all.js": 16,
+      "static\\yHDVt-0AuePagn8zCoAfV\\pages\\burime\\[id].js": 17,
+      "static\\yHDVt-0AuePagn8zCoAfV\\pages\\calls.js": 18,
+      "static\\yHDVt-0AuePagn8zCoAfV\\pages\\game\\[id].js": 19,
+      "static\\yHDVt-0AuePagn8zCoAfV\\pages\\index.js": 20,
+      "static\\yHDVt-0AuePagn8zCoAfV\\pages\\my.js": 21,
+      "static\\yHDVt-0AuePagn8zCoAfV\\pages\\rules.js": 22,
+      "static\\yHDVt-0AuePagn8zCoAfV\\pages\\settings.js": 23
     },
     "bySource": {},
     "usedIds": [
       0,
       1,
-      10,
-      11,
-      12,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
     ]
   }
 }
