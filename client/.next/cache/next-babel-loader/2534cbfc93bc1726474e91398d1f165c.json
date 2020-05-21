@@ -1,1 +1,0 @@
-{"ast":null,"code":"export var isClient = true;","map":{"version":3,"sources":["C:/Users/alexs/Desktop/Алексей/code/burime/client/config.ts"],"names":["isClient"],"mappings":"AAAA,OAAO,IAAMA,QAAQ,OAAd","sourcesContent":["export const isClient = typeof window !== \"undefined\""]},"metadata":{},"sourceType":"module"}

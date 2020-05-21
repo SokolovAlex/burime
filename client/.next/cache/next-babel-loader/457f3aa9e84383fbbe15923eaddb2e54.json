@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default {\n  siteWidth: '1040px'\n};","map":{"version":3,"sources":["C:/Users/alexs/Desktop/Алексей/code/burime/client/constants/sizes.ts"],"names":["siteWidth"],"mappings":"AAAA,eAAe;AACXA,EAAAA,SAAS,EAAE;AADA,CAAf","sourcesContent":["export default {\n    siteWidth: '1040px',\n}\n"]},"metadata":{},"sourceType":"module"}

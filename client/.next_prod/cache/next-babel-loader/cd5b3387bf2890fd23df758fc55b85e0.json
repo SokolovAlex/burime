@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var isClient = true;\nexport var baseServerUrl = process.env.baseServerUrl;","map":null,"metadata":{},"sourceType":"module"}

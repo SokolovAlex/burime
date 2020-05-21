@@ -5,10 +5,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--max_old_space_size=4096 next -p 3002",
-    "prod": "cross-env NODE_OPTIONS=--max_old_space_size=4096 npm run build && next start -p 80",
+    "prod": "cross-env NODE_ENV=prod NODE_OPTIONS=--max_old_space_size=4096 npm run build && next start -p 80",
     "pm2": "pm2 start npm --name 'next' -- start -p 80",
-    "build": "next build",
-    "start": "next start -p 80",
+    "build:prod": "cross-env NODE_ENV=prod next build",
+    "start": "cross-env NODE_ENV=prod next start -p 800",
     "format": "prettier --write ./**/*.ts*"
   },
   "dependencies": {

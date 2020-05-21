@@ -1,0 +1,63 @@
+{
+  "devFiles": [],
+  "pages": {
+    "/": [
+      "static/runtime/webpack-08f7b238829422e3b9b2.js",
+      "static/chunks/commons.fc7f5036bf5c8cb74f2f.js",
+      "static/runtime/main-11ed479c5509365f3395.js"
+    ],
+    "/_app": [
+      "static/runtime/webpack-08f7b238829422e3b9b2.js",
+      "static/chunks/commons.fc7f5036bf5c8cb74f2f.js",
+      "static/runtime/main-11ed479c5509365f3395.js"
+    ],
+    "/_error": [
+      "static/runtime/webpack-08f7b238829422e3b9b2.js",
+      "static/chunks/commons.fc7f5036bf5c8cb74f2f.js",
+      "static/runtime/main-11ed479c5509365f3395.js"
+    ],
+    "/_polyfills": [
+      "static/runtime/polyfills-69427cfeebf2a45437b1.js"
+    ],
+    "/all": [
+      "static/runtime/webpack-08f7b238829422e3b9b2.js",
+      "static/chunks/commons.fc7f5036bf5c8cb74f2f.js",
+      "static/runtime/main-11ed479c5509365f3395.js"
+    ],
+    "/burime/[id]": [
+      "static/runtime/webpack-08f7b238829422e3b9b2.js",
+      "static/chunks/commons.fc7f5036bf5c8cb74f2f.js",
+      "static/runtime/main-11ed479c5509365f3395.js"
+    ],
+    "/calls": [
+      "static/runtime/webpack-08f7b238829422e3b9b2.js",
+      "static/chunks/commons.fc7f5036bf5c8cb74f2f.js",
+      "static/runtime/main-11ed479c5509365f3395.js"
+    ],
+    "/game/[id]": [
+      "static/runtime/webpack-08f7b238829422e3b9b2.js",
+      "static/chunks/commons.fc7f5036bf5c8cb74f2f.js",
+      "static/runtime/main-11ed479c5509365f3395.js"
+    ],
+    "/index": [
+      "static/runtime/webpack-08f7b238829422e3b9b2.js",
+      "static/chunks/commons.fc7f5036bf5c8cb74f2f.js",
+      "static/runtime/main-11ed479c5509365f3395.js"
+    ],
+    "/my": [
+      "static/runtime/webpack-08f7b238829422e3b9b2.js",
+      "static/chunks/commons.fc7f5036bf5c8cb74f2f.js",
+      "static/runtime/main-11ed479c5509365f3395.js"
+    ],
+    "/rules": [
+      "static/runtime/webpack-08f7b238829422e3b9b2.js",
+      "static/chunks/commons.fc7f5036bf5c8cb74f2f.js",
+      "static/runtime/main-11ed479c5509365f3395.js"
+    ],
+    "/settings": [
+      "static/runtime/webpack-08f7b238829422e3b9b2.js",
+      "static/chunks/commons.fc7f5036bf5c8cb74f2f.js",
+      "static/runtime/main-11ed479c5509365f3395.js"
+    ]
+  }
+}

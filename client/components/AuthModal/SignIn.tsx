@@ -4,8 +4,8 @@ import { SubmitButton } from '../atoms/Button/Button'
 import { TextField } from '@material-ui/core'
 import Link from '@material-ui/core/Link'
 import { FaGoogle } from 'react-icons/fa'
-import useForm from 'react-hook-form'
-import { baseServerUrl } from '../../constants/urls'
+import useForm from 'react-hook-form';
+import { baseServerUrl } from '../../config';
 
 interface SignInProps {
     email?: string
