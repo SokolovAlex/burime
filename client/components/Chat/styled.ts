@@ -95,6 +95,7 @@ export const MessagesContainer = styled.div`
     justify-content: flex-end;
     padding: 12px;
     background-color: #e2e2e2;
+    height: 100%;
 `;
 
 export const ContentWrapper = styled.div`
