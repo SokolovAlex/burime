@@ -20,7 +20,7 @@ export const AuthModal = ({ isOpen, setOpen }: AuthModalProps) => {
         const { status, data } = await signIn({
             email,
             password,
-        })
+        });
 
         if (status !== 200) {
             error('Ошибка', data.message)

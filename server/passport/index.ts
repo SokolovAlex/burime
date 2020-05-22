@@ -46,16 +46,22 @@ export default async (server: Express) => {
         usernameField: 'email',
         passwordField: 'password'
     }, async (username, password, done) => {
+            console.log('login--->');
+            console.log(username, password);
+
             let user = await userRepo.findOne({
                 where: { email: username },
                 select: ['name', 'password', 'email', 'type']
             });
+            console.log('user--->');
+            console.log(user);
+
             if (!user) {
-                return done(new Error('user not found'));
+                return done(new Error(`Пользователь ${username} не найден`));
             }
             const validPassport = await compare(user.password as string, password);
             if (!validPassport) {
-                return done(new Error('wrong passport'));
+                return done(new Error('Неверный пароль'));
             }
             done(null, user);
     }));

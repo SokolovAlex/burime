@@ -1,11 +1,11 @@
 import 'reflect-metadata';
 import { Connection, createConnection } from 'typeorm';
-import { pgConfig } from './config';
+import { sqlLiteConfig } from './config';
 
 let connection: Connection;
 
 export const initDb = async () => {
-    connection = await createConnection(pgConfig);
+    connection = await createConnection(sqlLiteConfig);
     return connection;
 };
 
