@@ -9,7 +9,7 @@ module.exports = withCustomBabelConfigFile(
         babelConfigFile: path.resolve("./babel.config.js"),
         distDir,
         env: {
-            baseServerUrl: isProd ? 'http://134.0.118.122:3003' : 'http://localhost:3003',
+            baseServerUrl: isProd ? 'http://goburime.ru:3003' : 'http://localhost:3003',
         },
     }
 );

@@ -33,7 +33,7 @@ import { domain, port, clientUrl } from './config';
     server.use(expressSession({
         secret: 'burime',
         resave: true,
-        saveUninitialized: false,
+        saveUninitialized: true,
         cookie: {
             maxAge: 1000 * 60 * 60 * 24, // day
         },

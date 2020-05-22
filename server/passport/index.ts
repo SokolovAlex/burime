@@ -53,8 +53,8 @@ export default async (server: Express) => {
                 where: { email: username },
                 select: ['name', 'password', 'email', 'type']
             });
-            console.log('user--->');
-            console.log(user);
+            console.log('passport user db--->');
+            console.log(user); 
 
             if (!user) {
                 return done(new Error(`Пользователь ${username} не найден`));
@@ -80,6 +80,10 @@ export default async (server: Express) => {
             type: 'local',
             lastEnterAt: new Date(),
         });
+
+        console.log('registered user db--->');
+        console.log(user);
+
         done(null, user);
     }));
 }

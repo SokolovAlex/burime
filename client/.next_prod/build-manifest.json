@@ -3,17 +3,17 @@
   "pages": {
     "/": [
       "static/runtime/webpack-08f7b238829422e3b9b2.js",
-      "static/chunks/commons.b7eabbbde08c0ec969f5.js",
+      "static/chunks/commons.be7c4d0e5eeaf670cf94.js",
       "static/runtime/main-11ed479c5509365f3395.js"
     ],
     "/_app": [
       "static/runtime/webpack-08f7b238829422e3b9b2.js",
-      "static/chunks/commons.b7eabbbde08c0ec969f5.js",
+      "static/chunks/commons.be7c4d0e5eeaf670cf94.js",
       "static/runtime/main-11ed479c5509365f3395.js"
     ],
     "/_error": [
       "static/runtime/webpack-08f7b238829422e3b9b2.js",
-      "static/chunks/commons.b7eabbbde08c0ec969f5.js",
+      "static/chunks/commons.be7c4d0e5eeaf670cf94.js",
       "static/runtime/main-11ed479c5509365f3395.js"
     ],
     "/_polyfills": [
@@ -21,42 +21,42 @@
     ],
     "/all": [
       "static/runtime/webpack-08f7b238829422e3b9b2.js",
-      "static/chunks/commons.b7eabbbde08c0ec969f5.js",
+      "static/chunks/commons.be7c4d0e5eeaf670cf94.js",
       "static/runtime/main-11ed479c5509365f3395.js"
     ],
     "/burime/[id]": [
       "static/runtime/webpack-08f7b238829422e3b9b2.js",
-      "static/chunks/commons.b7eabbbde08c0ec969f5.js",
+      "static/chunks/commons.be7c4d0e5eeaf670cf94.js",
       "static/runtime/main-11ed479c5509365f3395.js"
     ],
     "/calls": [
       "static/runtime/webpack-08f7b238829422e3b9b2.js",
-      "static/chunks/commons.b7eabbbde08c0ec969f5.js",
+      "static/chunks/commons.be7c4d0e5eeaf670cf94.js",
       "static/runtime/main-11ed479c5509365f3395.js"
     ],
     "/game/[id]": [
       "static/runtime/webpack-08f7b238829422e3b9b2.js",
-      "static/chunks/commons.b7eabbbde08c0ec969f5.js",
+      "static/chunks/commons.be7c4d0e5eeaf670cf94.js",
       "static/runtime/main-11ed479c5509365f3395.js"
     ],
     "/index": [
       "static/runtime/webpack-08f7b238829422e3b9b2.js",
-      "static/chunks/commons.b7eabbbde08c0ec969f5.js",
+      "static/chunks/commons.be7c4d0e5eeaf670cf94.js",
       "static/runtime/main-11ed479c5509365f3395.js"
     ],
     "/my": [
       "static/runtime/webpack-08f7b238829422e3b9b2.js",
-      "static/chunks/commons.b7eabbbde08c0ec969f5.js",
+      "static/chunks/commons.be7c4d0e5eeaf670cf94.js",
       "static/runtime/main-11ed479c5509365f3395.js"
     ],
     "/rules": [
       "static/runtime/webpack-08f7b238829422e3b9b2.js",
-      "static/chunks/commons.b7eabbbde08c0ec969f5.js",
+      "static/chunks/commons.be7c4d0e5eeaf670cf94.js",
       "static/runtime/main-11ed479c5509365f3395.js"
     ],
     "/settings": [
       "static/runtime/webpack-08f7b238829422e3b9b2.js",
-      "static/chunks/commons.b7eabbbde08c0ec969f5.js",
+      "static/chunks/commons.be7c4d0e5eeaf670cf94.js",
       "static/runtime/main-11ed479c5509365f3395.js"
     ]
   }
