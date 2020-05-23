@@ -5,7 +5,7 @@ import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 import { Log } from './log';
 import { Message } from './message';
 
-export type UserType = 'local' | 'google';
+export type UserType = 'local' | 'google' | 'vk';
 
 @Entity()
 export class User {

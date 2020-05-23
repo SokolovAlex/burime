@@ -32,8 +32,8 @@ import { domain, port, clientUrl } from './config';
     server.use(bodyParser.json());
     server.use(expressSession({
         secret: 'burime',
-        resave: true,
-        saveUninitialized: true,
+        resave: false,
+        saveUninitialized: false,
         cookie: {
             maxAge: 1000 * 60 * 60 * 24, // day
         },

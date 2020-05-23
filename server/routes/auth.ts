@@ -28,10 +28,6 @@ export const addAuthRoutes = async (server: Express) => {
         (_, res) => res.redirect(clientUrl));
 
     server.get('/auth/status', (req, res) => {
-
-        console.log('status ---->', req.user);
-        console.log('status sessionID ---->', req.sessionID);
-
         if (!req.session) {
             return res.status(421).json({
                 message: 'no session',
@@ -46,11 +42,6 @@ export const addAuthRoutes = async (server: Express) => {
 
     server.post('/auth/login', (req, res) => {
         passport.authenticate('login', (error, user, info) => {
-
-            console.log('authenticate user 1 ---->', user);
-            console.log('authenticate user sessionID ---->', req.sessionID);
-
-
             if (error) {
                 return res.status(500).json({ message: error.message });
             }
@@ -72,7 +63,7 @@ export const addAuthRoutes = async (server: Express) => {
         
         if (!req.session) {
             try {
-                //req.logout();
+                req.logout();
             } catch(error) {
                 console.log('logout---->', error)
             } finally{}
@@ -81,7 +72,7 @@ export const addAuthRoutes = async (server: Express) => {
         
         req.session.destroy(function(e){
             try {
-                //req.logout();
+                req.logout();
             } catch(error) {
                 console.log('logout---->', error)
             } finally{}

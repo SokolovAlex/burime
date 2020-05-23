@@ -1,11 +1,11 @@
 import passport from 'passport';
 import  { Express } from 'express';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import { Strategy as VkStrategy } from 'passport-vkontakte';
 import { getConnection } from './../db/index';
 import { User } from './../db/entities/user';
 import { Strategy as LocalStrategy } from 'passport-local';
-import { key, secret } from './../config';
-import { serverUrl } from './../config';
+import { key, secret, serverUrl, vkAppId, vkSecret } from './../config';
 
 import { salt, hash, compare } from './../services/crypt';
 
@@ -21,6 +21,29 @@ export default async (server: Express) => {
         const user = await userRepo.findOne({ where: { email } });
         done(null, user);
     });
+
+    passport.use(new VkStrategy({
+        clientID:     vkAppId,
+        clientSecret: vkSecret,
+        callbackURL: `${serverUrl}/auth/vk/callback`,
+    }, async (_, __, params, profile, done) => {
+
+            console.log("111111111");
+            console.log(profile);
+            console.log(params);
+
+            const email =  profile.id;
+            let user = await userRepo.findOne({ where: { email } });
+            if (!user) {
+                user = await userRepo.save({
+                    name: profile.displayName,
+                    email,
+                    type: 'vk',
+                    lastEnterAt: new Date(),
+                });
+            }
+            done(null, user);
+    }));
 
     passport.use(new GoogleStrategy({
         clientID: key,
@@ -46,16 +69,10 @@ export default async (server: Express) => {
         usernameField: 'email',
         passwordField: 'password'
     }, async (username, password, done) => {
-            console.log('login--->');
-            console.log(username, password);
-
-            let user = await userRepo.findOne({
+            const user = await userRepo.findOne({
                 where: { email: username },
                 select: ['name', 'password', 'email', 'type']
             });
-            console.log('passport user db--->');
-            console.log(user); 
-
             if (!user) {
                 return done(new Error(`Пользователь ${username} не найден`));
             }
@@ -80,10 +97,6 @@ export default async (server: Express) => {
             type: 'local',
             lastEnterAt: new Date(),
         });
-
-        console.log('registered user db--->');
-        console.log(user);
-
         done(null, user);
     }));
 }
