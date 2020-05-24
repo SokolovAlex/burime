@@ -19,19 +19,19 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 
 
 ## ideas:
-0) server paging
-7) active menu
-2) random poem
-3) api рифм
-4) favorites
-5) room chat
-6) time
-7) Vk
-pm2
-
-к запуску
-- analitics
-- server paging + sorts
+?) Vk + 
+?) langing
+?) pm2
+?) analitics
+?) server paging + sorts
+?) public not public
+?) favorites 
+?) server paging
+?) active menu
+?) random poem
+?) room chat
+?) time
+?) api рифм
 
 
 ## prod prepare
