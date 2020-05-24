@@ -10,10 +10,6 @@ tsc **/*.ts
 ## animation
 https://github.com/dielduarte/animate-css-styled-components
 
-## need local config with: 
-export const key = '';
-export const secret = '';
-
 ## typeorm
 ## repository
 https://typeorm.delightful.studio/classes/_repository_repository_.repository.html
@@ -31,7 +27,24 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 5) room chat
 6) time
 7) Vk
+pm2
 
 к запуску
 - analitics
 - server paging + sorts
+
+
+## prod prepare
+pg
+//  cd /var/lib/pgsql/data/
+//  https://itproffi.ru/ustanovka-postgresql-na-centos-7/
+
+htop
+//   https://ru.linux.wsldp.com/install-htop-on-centos-7/
+
+nohup
+// nohup npm run prod &
+// netstat -tulpan
+
+// Google
+// https://console.developers.google.com/apis/credentials/oauthclient/796784362981-5cu937g3chdeaaj18ngj5ks5e1o881ad.apps.googleusercontent.com?project=burime&pli=1

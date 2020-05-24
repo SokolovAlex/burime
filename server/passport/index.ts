@@ -25,19 +25,14 @@ export default async (server: Express) => {
     passport.use(new VkStrategy({
         clientID:     vkAppId,
         clientSecret: vkSecret,
-        callbackURL: `${serverUrl}/auth/vk/callback`,
+        callbackURL: `${serverUrl}/auth/vkontakte/callback`,
     }, async (_, __, params, profile, done) => {
-
-            console.log("111111111");
-            console.log(profile);
-            console.log(params);
-
-            const email =  profile.id;
-            let user = await userRepo.findOne({ where: { email } });
+            const username =  profile.username;
+            let user = await userRepo.findOne({ where: { email: username } });
             if (!user) {
                 user = await userRepo.save({
                     name: profile.displayName,
-                    email,
+                    email: username,
                     type: 'vk',
                     lastEnterAt: new Date(),
                 });

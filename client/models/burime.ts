@@ -9,10 +9,10 @@ export enum BurimeStatus {
 }
 
 export enum BurimeStepsAmount {
-    Two = 2,
-    Four = 4,
-    Seven = 7,
-    Ten = 10,
+    XSmall = 2,
+    Small = 4,
+    Medium = 6,
+    Large = 8,
 }
 
 export enum StepDuration {
@@ -29,10 +29,10 @@ export interface IOption {
 }
 
 export const BurimeStepsAmountOptions: IOption[] = [
-    { value: BurimeStepsAmount.Two, label: '4 строки' },
-    { value: BurimeStepsAmount.Four, label: '8 строк' },
-    { value: BurimeStepsAmount.Seven, label: '14 строк' },
-    { value: BurimeStepsAmount.Ten, label: '20 строк' },
+    { value: BurimeStepsAmount.XSmall, label: '4 строки' },
+    { value: BurimeStepsAmount.Small, label: '8 строк' },
+    { value: BurimeStepsAmount.Medium, label: '12 строк' },
+    { value: BurimeStepsAmount.Large, label: '16 строк' },
 ];
 
 export const StepDurationOptions: IOption[] = [

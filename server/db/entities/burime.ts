@@ -12,10 +12,10 @@ export enum BurimeStatus {
 }
 
 export enum BurimeStepsAmount {
-    Two = 2,
-    Four = 4,
-    Seven = 7,
-    Ten = 10,
+    XSmall = 2,
+    Small = 4,
+    Medium = 6,
+    Large = 8,
 }
 
 export enum StepDuration {
@@ -45,7 +45,7 @@ export class Burime {
 
     @Column({
         type: 'int8',
-        default: BurimeStepsAmount.Four,
+        default: BurimeStepsAmount.Small,
     })
     public stepsAmount: BurimeStepsAmount;
 

@@ -24,16 +24,21 @@ export const addAuthRoutes = async (server: Express) => {
     }));
 
     server.get('/auth/google/callback', 
-        passport.authenticate('google', { failureRedirect: '/login' }),
+        passport.authenticate('google', { failureRedirect: '/' }),
+        (_, res) => res.redirect(clientUrl));
+
+    server.get('/auth/vkontakte', passport.authenticate('vkontakte'));
+
+    server.get('/auth/vkontakte/callback', 
+        passport.authenticate('vkontakte', { failureRedirect: '/' }),
         (_, res) => res.redirect(clientUrl));
 
     server.get('/auth/status', (req, res) => {
         if (!req.session) {
-            return res.status(421).json({
+            return res.status(401).json({
                 message: 'no session',
             });
         }
-
         res.json({
             logged: req.isAuthenticated(),
             user: req.user,
@@ -48,8 +53,6 @@ export const addAuthRoutes = async (server: Express) => {
             if (!user) {
                 return res.status(201).json(info);
             }
-
-
             req.logIn(user, () => res.json({
                 name: user.name,
                 type: user.type,

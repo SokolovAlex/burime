@@ -25,11 +25,9 @@ export const Menu = ({ items }: MenuProps) => {
                     </MenuItem>
                 ))}
                 <MenuItem>
-                    {user ? (
-                        <Avatar user={user} />
-                    ) : (
-                        <MenuLink onClick={() => setOpen(true)}>войти</MenuLink>
-                    )}
+                    {user
+                        ? <Avatar user={user} />
+                        : <MenuLink onClick={() => setOpen(true)}>войти</MenuLink>}
                 </MenuItem>
             </MenuList>
             <AuthModal isOpen={isOpen} setOpen={setOpen} />

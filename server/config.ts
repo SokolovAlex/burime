@@ -11,9 +11,9 @@ if (!process.env.google_key || !process.env.google_secret) {
 export const key = process.env.google_key;
 export const secret = process.env.google_secret;
 
-if (!process.env.vk_key || !process.env.vk_secret) {
+if (!process.env.vk_appId || !process.env.vk_secret) {
     console.log('please, set up vk keys');
 }
 
-export const vkAppId = process.env.vk_key;
+export const vkAppId = process.env.vk_appId;
 export const vkSecret = process.env.vk_secret;
