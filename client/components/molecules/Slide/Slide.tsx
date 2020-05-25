@@ -7,15 +7,14 @@ interface SlideProps {
     text: string;
     img: string;
     right?: boolean;
-    fontSize?: number
 }
 
-export const Slide = ({ title, right, slideNumber, text, img, fontSize }: SlideProps) => (
+export const Slide = ({ title, right, slideNumber, text, img }: SlideProps) => (
     <SlideWrapper right={right}>
         <ImageBlock>
             <img src={img}></img>
         </ImageBlock>
-        <TextBlock fontSize={fontSize}>
+        <TextBlock>
             { slideNumber && <RuleNumber>{slideNumber}</RuleNumber>}
             { title && <SliderTitle>{title}</SliderTitle>}
             <div>{text}</div>

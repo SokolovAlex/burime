@@ -1,14 +1,5 @@
 import React, { ReactNode } from 'react'
-import { SectionContent, ContainerContent } from './styled'
-
-interface SectionProps {
-    children: ReactNode
-    minHeight?: number;
-}
-
-export const Section = ({ children }: SectionProps) => (
-    <SectionContent>{children}</SectionContent>
-)
+import { Section, ContainerContent, SectionWrapper } from './styled'
 
 interface ContainerProps {
     children: ReactNode
@@ -17,4 +8,16 @@ interface ContainerProps {
 
 export const Container = ({ children, minHeight }: ContainerProps) => (
     <ContainerContent minHeight={minHeight}>{children}</ContainerContent>
-)
+);
+
+interface BackgroundProps {
+    children: ReactNode
+}
+
+export const Background = ({ children }: BackgroundProps) => (
+    <SectionWrapper>
+        <Section>{children}</Section>
+    </SectionWrapper>
+);
+
+export { Section };

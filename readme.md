@@ -19,8 +19,6 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 
 
 ## ideas:
-?) Vk + 
-?) langing
 ?) pm2
 ?) analitics
 ?) server paging + sorts
@@ -32,7 +30,7 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 ?) room chat
 ?) time
 ?) api рифм
-
+?) mobile
 
 ## prod prepare
 pg

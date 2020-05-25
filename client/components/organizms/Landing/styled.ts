@@ -1,13 +1,9 @@
 import styled from 'styled-components';
-import { shadow, colors } from '../../../constants';
+import { shadow, colors, fonts, breakpoints } from '../../../constants';
 
 export const LandingItem = styled.div`
     text-align: center;
     padding: 12px 0;
-`;
-
-export const LandingWrapper = styled.div`
-    padding: 0 12px;
 `;
 
 export const LandingPoint = styled.div`
@@ -39,4 +35,40 @@ export const LandingBlock = styled.div`
     }
 `;
 
+export const PromoWrapper = styled.div`
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-template-columns: 1fr;
+    grid-gap: 2vw;
+    margin: 20px 0;
 
+    @media ${breakpoints.mobile} {
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media ${breakpoints.laptop} {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+`;
+
+export const PromoCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+`;
+
+export const PromoImg = styled.img`
+    height: 200px;
+    border-radius: 10px;
+`;
+
+export const PromoTitle = styled.div`
+    font-size: 32px;
+    text-decoration: underline;
+    margin: 4px 0;
+    color: ${colors.primary};
+    ${fonts.neucha}
+`;

@@ -48,7 +48,7 @@ export const RuleNumber = styled.div`
     margin-bottom: 12px;
 `;
 
-export const TextBlock = styled(SlideBlock)<{fontSize?: number}>`
+export const TextBlock = styled(SlideBlock)`
     padding: 16px;
     font-size: 20px;
     align-items: center;
@@ -58,7 +58,7 @@ export const TextBlock = styled(SlideBlock)<{fontSize?: number}>`
     text-align: center;
     ${fonts.nunito}
     @media ${breakpoints.mobile} {
-        font-size: ${({fontSize}) => fontSize ? `${fontSize}px` : '32px' };
+        font-size: 23px;
     }
 `;
 

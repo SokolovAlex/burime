@@ -58,12 +58,10 @@ export const Layout = ({ children, noAuth }: Props) => {
             <SiteWrapper>
                 <Header/>
                 <MainSection>
-                    <Section>
-                        { user || noAuth
-                            ? children
-                            : <Landing/>
-                        }
-                    </Section>
+                    { user || noAuth
+                        ? <Section>{children}</Section>
+                        : <Landing/>
+                    }
                 </MainSection>
                 <Footer/>
             </SiteWrapper>
