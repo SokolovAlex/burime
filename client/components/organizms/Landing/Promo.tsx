@@ -29,8 +29,8 @@ const promoData = [{
 
 export const Promo = () => (
     <PromoWrapper>
-        { promoData.map(({ title, text, img }) => (
-            <PromoCard>
+        { promoData.map(({ title, text, img }, i) => (
+            <PromoCard key={i}>
                 <PromoImg alt={title} src={img}/>
                 <PromoTitle>{title}</PromoTitle>
                 <div>{text}</div>

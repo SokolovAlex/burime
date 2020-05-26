@@ -4,6 +4,8 @@ import nCookies from 'next-cookies';
 import { status } from '../services/api/auth';
 import { UserContext } from '../services/contexts/auth';
 import { UserModel } from '../models/user';
+import ReactGA from 'react-ga';
+import { ga_analitics } from '../config';
 
 export default class App extends NextApp<{}, {}, { user: UserModel }> {
     constructor(props) {
@@ -29,9 +31,7 @@ export default class App extends NextApp<{}, {}, { user: UserModel }> {
     }
 
     componentDidMount() {
-        const jssStyles = document.querySelector('#jss-server-side');
-        if (jssStyles && jssStyles.parentNode)
-            jssStyles.parentNode.removeChild(jssStyles);
+        ReactGA.initialize(ga_analitics);
     }
 
     setUser = (user: UserModel) => {

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { sizes } from '../../constants'
+import { sizes, breakpoints } from '../../constants'
 
 export const HeaderHost = styled.div`
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
@@ -19,7 +19,10 @@ export const HeaderContent = styled.div`
 
 export const MenuWrapper = styled.div`
     position: absolute;
-    right: 50px;
+    right: 20px;
+    @media ${breakpoints.mobile} {
+        right: 50px;
+    }
 `
 
 export const LogoWraepper = styled.div``

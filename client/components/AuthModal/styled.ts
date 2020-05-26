@@ -1,32 +1,36 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { breakpoints } from '../../constants';
 
 export const Centered = styled.div`
     display: flex;
     margin-bottom: 12px;
     justify-content: center;
-`
+`;
 
 export const LightText = styled.div`
     color: silver;
     font-size: 12px;
     text-decoration: underline;
-`
+`;
 
 export const LoginContainer = styled.div`
-    min-width: 300px;
+    min-width: 200px;
     padding: 20px 60px;
-`
+    @media ${breakpoints.mobile} {
+        min-width: 300px;
+    }
+`;
 
 export const InputWrapper = styled.div`
     text-align: center;
     margin-bottom: 12px;
-`
+`;
 
 export const ActionsWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-`
+`;
 
 export const SocialButton = styled.a`
     width: 40px;
@@ -51,8 +55,6 @@ export const SocialButton = styled.a`
     }
 `;
 
-
-
 export const VkButton = styled(SocialButton)`
     background: #4a76a8;
     & :focus,
@@ -60,7 +62,6 @@ export const VkButton = styled(SocialButton)`
         background: #3d6898;
     }
 `;
-
 
 export const GoogleButton = styled(SocialButton)`
     background: #4285f4;
