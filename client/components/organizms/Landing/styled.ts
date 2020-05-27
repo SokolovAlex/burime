@@ -58,11 +58,18 @@ export const PromoCard = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
+
+    background-color: #f7f7f7;
+    border: solid 1px #bfbaba;
+    ${shadow.simple}
+    padding: 24px 0;
 `;
 
 export const PromoImg = styled.img`
     height: 200px;
     border-radius: 10px;
+    border: solid 1px #bfbaba;
+    padding: 4px;
 `;
 
 export const PromoTitle = styled.div`

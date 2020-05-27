@@ -19,6 +19,7 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 
 
 ## ideas:
+?) promo images
 ?) pm2
 ?) analitics
 ?) server paging + sorts
