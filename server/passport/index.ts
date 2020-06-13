@@ -24,6 +24,7 @@ export default async (server: Express) => {
 
     passport.use(new VkStrategy({
         clientID:     vkAppId,
+        apiVersion: '5.110',
         clientSecret: vkSecret,
         callbackURL: `${serverUrl}/auth/vkontakte/callback`,
     }, async (_, __, params, profile, done) => {

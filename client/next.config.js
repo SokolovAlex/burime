@@ -10,7 +10,7 @@ module.exports = withCustomBabelConfigFile(
         distDir,
         env: {
             baseServerUrl: isProd ? 'http://goburime.ru:3003' : 'http://localhost:3003',
-            ga_analitics: isProd ? process.env.ga_analitics : '',
+            ga_analitics: process.env.ga_analitics,
         },
     }
 );

@@ -4,8 +4,6 @@ import nCookies from 'next-cookies';
 import { status } from '../services/api/auth';
 import { UserContext } from '../services/contexts/auth';
 import { UserModel } from '../models/user';
-import ReactGA from 'react-ga';
-import { ga_analitics } from '../config';
 
 export default class App extends NextApp<{}, {}, { user: UserModel }> {
     constructor(props) {
@@ -28,10 +26,6 @@ export default class App extends NextApp<{}, {}, { user: UserModel }> {
         }
         const { user, logged } = statusResult;
         return { pageProps: { ...pageProps, user, logged } };
-    }
-
-    componentDidMount() {
-        ReactGA.initialize(ga_analitics);
     }
 
     setUser = (user: UserModel) => {

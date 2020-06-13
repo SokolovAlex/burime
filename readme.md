@@ -19,9 +19,11 @@ https://github.com/typeorm/typeorm/blob/master/docs/migrations.md
 
 
 ## ideas:
-?) promo images
 ?) pm2
-?) analitics
+?) analitics !
+?) show others 
+--
+?) multi games
 ?) server paging + sorts
 ?) public not public
 ?) favorites 
@@ -47,3 +49,6 @@ nohup
 
 // Google
 // https://console.developers.google.com/apis/credentials/oauthclient/796784362981-5cu937g3chdeaaj18ngj5ks5e1o881ad.apps.googleusercontent.com?project=burime&pli=1
+
+//analitics
+https://support.google.com/analytics/answer/1008015?hl=ru

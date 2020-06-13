@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import Head from 'next/head'
 import ButterToast from 'butter-toast'
-
+import { ga_analitics } from '../../../config';
 import { Header } from '../../Header/Header'
 import { Section } from '../../atoms/Section/Section'
 import { useUser } from '../../../services/contexts/auth'
@@ -53,6 +53,16 @@ export const Layout = ({ children, noAuth }: Props) => {
                 <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png"/>
                 <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png"/>
                 <link rel="manifest" href="favicon/site.webmanifest"></link>
+                <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga_analitics}`}></script>
+                <script dangerouslySetInnerHTML={{ __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){
+                        dataLayer.push(arguments);
+                    }
+                    gtag('js', new Date());
+                    gtag('config', "${ga_analitics}");
+                ` }}>
+                </script>
             </Head>
             <GlobalStyle/>
             <SiteWrapper>
